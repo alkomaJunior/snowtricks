@@ -1,4 +1,7 @@
+###> project folder and files ###
 /.idea/
+###< project folder and files ###
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -8,4 +11,3 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
