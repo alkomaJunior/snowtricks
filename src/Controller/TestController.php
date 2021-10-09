@@ -13,8 +13,6 @@ class TestController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('test/index.html.twig', [
-            'controller_name' => bin2hex(random_bytes(16)),
-        ]);
+        return $this->render('test/index.html.twig');
     }
 }
