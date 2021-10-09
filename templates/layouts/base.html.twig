@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="utf-8">
+        <title>CreateX | Multipurpose Bootstrap Theme
+        </title>
+        <!-- SEO Meta Tags-->
+        <meta name="author" content="alkoma-jr">
+        <!-- Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon and Touch Icons-->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/images/favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/favicon.ico') }}">
+        <meta name="theme-color" content="#ffffff">
+
+        {% block stylesheets %}
+            <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+            <link rel="stylesheet" media="screen" href="{{ asset('build/css/vendor.min.css') }}">
+            <!-- Main Theme Styles + Bootstrap-->
+            <link rel="stylesheet" media="screen" href="{{ asset('build/css/theme.min.css') }}">
+            <!-- Google Tag Manager-->
+        {% endblock %}
+
+    </head>
+    <body>
+
+        {% block body %}{% endblock %}
+
+        {{ include('partials/_footer.html.twig') }}
+
+
+        {% block javascripts %}
+            <!-- Modernizr-->
+            {{ encore_entry_script_tags('modernizr') }}
+            <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+            <script src="{{ asset('build/js/vendor/vendor.min.js') }}"></script>
+            {{ encore_entry_script_tags('theme') }}
+            {{ encore_entry_script_tags('card') }}
+        {% endblock %}
+
+    </body>
+</html>
