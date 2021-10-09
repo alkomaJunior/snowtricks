@@ -4,7 +4,7 @@
     {% block header %}{{ include('layouts/partials/_navbar.html.twig') }}{% endblock %}
 
     <!-- Page Content-->
-    <!-- Hero Slider-->
+    <!-- Tagline-->
     <section class="owl-carousel dots-inside controls-hidden-mobile" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: false, &quot;autoplayTimeout&quot;: 7000 }">
         <div class="bg-cover bg-center bg-no-repeat py-5" style="background-image: url({{ asset('build/images/sntHome.jpg') }});"><span class="bg-overlay"></span>
             <div class="container bg-content py-md-5">
@@ -26,20 +26,32 @@
             </div>
         </div>
     </section>
-    <!-- Projects-->
+    <!-- Tricks-->
     <section class="bg-secondary py-5" id="projects">
         <div class="container">
-            <h2 class="py-3 text-center text-lg-left">{{ 'Tricks'|trans }}</h2>
+            <h2 class="py-3 text-center text-lg-left">Projects</h2>
+            <ul class="nav nav-tabs nav-tabs-style-4 bg-white nav-justified mb-30">
+                <li class="nav-item"><a class="nav-link py-3 active" href="#" data-filter="*"><img class="d-block mx-auto mb-2" src="#" width="40" alt="All">All</a></li>
+                {% for group in groups %}
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#" data-filter="{{ "."~group.title }}"><img class="d-block mx-auto mb-2" src="#" width="40" alt="{{ group.title }}">
+                            {{ group.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="container-fluid">
             <div class="isotope-grid filter-grid cols-5">
                 <div class="gutter-sizer"></div>
                 <div class="grid-sizer"></div>
                 <!-- Item-->
-                <a class="grid-item commercial img-thumbnail p-1 mb-30 text-decoration-none" href="#">
-                    <img src="#" alt="Project">
-                    <h3 class="text-lg p-3 mb-0 text-center">Project name</h3>
-                </a>
+                {% for trick in tricks %}
+                    <a class="grid-item {{ trick.trickGroup.title }} img-thumbnail p-1 mb-30 text-decoration-none" href="#">
+                        <img src="#" alt="{{ trick.name~"-img" }}">
+                        <h3 class="text-lg p-3 mb-0 text-center">{{ trick.name }}</h3>
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </section>
