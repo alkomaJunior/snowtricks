@@ -22,17 +22,17 @@ class Comment
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="text")
      */
-    private ?string $message;
+    private $message;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
      */
-    private ?User $user;
+    private $user;
 
     public function getId(): ?int
     {

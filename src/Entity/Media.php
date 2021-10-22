@@ -22,33 +22,33 @@ class Media
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $mediaFileName;
+    private $mediaFileName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $mediaUrl;
+    private $mediaUrl;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $mediaType;
+    private $mediaType;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private ?bool $isFrontPageMedia;
+    private $isFrontPageMedia;
 
     /**
      * @ORM\ManyToOne(targetEntity=Trick::class, inversedBy="media")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?Trick $trick;
+    private $trick;
 
     public function getId(): ?int
     {

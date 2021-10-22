@@ -16,27 +16,27 @@ class LoginAttempt
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $username;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $ipAddress;
+    private $ipAddress;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private ?DateTimeImmutable $attemptedAt;
+    private $attemptedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="loginAttempts")
      */
-    private ?User $user;
+    private $user;
 
     public function getId(): ?int
     {
@@ -89,13 +89,5 @@ class LoginAttempt
         $this->user = $user;
 
         return $this;
-    }
-
-    /**
-     * @param int|null $id
-     */
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
     }
 }

@@ -25,33 +25,33 @@ class Trick
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $name;
+    private $name;
 
     /**
      * @ORM\Column(type="text")
      */
-    private ?string $description;
+    private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=Group::class, inversedBy="trick")
      */
-    private ?Group $trickGroup;
+    private $trickGroup;
 
     /**
      * @ORM\OneToMany(targetEntity=Media::class, mappedBy="trick", orphanRemoval=true)
      */
-    private Collection $media;
+    private $media;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tricks")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?User $user;
+    private $user;
 
     public function __construct()
     {

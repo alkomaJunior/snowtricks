@@ -25,63 +25,63 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private ?string $email;
+    private $email;
 
     /**
      * @ORM\Column(type="json")
      */
-    private array $roles = [];
+    private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private string $password;
+    private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $userName;
+    private $userName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $avatar;
+    private $avatar;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private ?bool $isActive;
+    private $isActive;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $activationToken;
+    private $activationToken;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $resetToken;
+    private $resetToken;
 
     /**
      * @ORM\OneToMany(targetEntity=Trick::class, mappedBy="user")
      */
-    private Collection $tricks;
+    private $tricks;
 
     /**
      * @ORM\OneToMany(targetEntity=LoginAttempt::class, mappedBy="user")
      */
-    private Collection $loginAttempts;
+    private $loginAttempts;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user")
      */
-    private Collection $comments;
+    private $comments;
 
     public function __construct()
     {
