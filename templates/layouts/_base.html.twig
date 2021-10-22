@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale }}">
+    <head>
+        <title>{% block title %}Rent &#8211; Mounthood &#8211; Snowboard School{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+
+        {% block stylesheets %}
+
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/essential-grid/css/settings.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/tpl-essential-grids.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/revslider/css/settings.css') }}" type="text/css" media="all">
+
+            {{ encore_entry_link_tags('app') }}
+
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/woocommerce/css/woocommerce-layout.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/woocommerce/css/woocommerce-smallscreen.css') }}" type="text/css" media="only screen and (max-width: 768px)">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/woocommerce/css/woocommerce.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/wp-cloudy/css/wpcloudy.min.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/wp-cloudy/css/wpcloudy-anim.min.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/css.css')~'?family=Montserrat:100,200,300,300i,400,400i,500,600,700,700i' }}">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/fontello/css/fontello.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/style.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/core.animation.min.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/shortcodes.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/skin.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/plugin.woocommerce.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/css/responsive.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/vendor/magnific/magnific-popup.min.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('build/mounthood/js/core.messages/core.messages.min.css') }}" type="text/css" media="all">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+        {% endblock %}
+
+
+    </head>
+    <body>
+
+    <body class="page body_filled article_style_stretch scheme_original top_panel_show top_panel_above sidebar_hide">
+
+    <!-- Body wrap -->
+    <div class="body_wrap">
+        <!-- Page wrap -->
+        <div class="page_wrap">
+            <div class="top_panel_fixed_wrap"></div>
+            {% block body %}{% endblock %}
+            {{ include('layouts/partials/_footer.html.twig') }}
+        </div>
+        <!-- /Page wrap -->
+    </div>
+
+    </body>
+
+    {% block javascripts %}
+
+        <script data-cfasync="false" src="{{ asset('build/mounthood/js/email-decode.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/jquery/jquery.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/_packed.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/_main.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/trx_utils.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/essential-grid/js/lightbox.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/essential-grid/js/jquery.themepunch.tools.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/essential-grid/js/jquery.themepunch.essential.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/eg-index-page.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/revslider/jquery.themepunch.revolution.min.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/revslider/revolution.extension.slideanims.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/revslider/revolution.extension.layeranimation.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/revslider/revolution.extension.navigation.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/revslider/revolution.extension.parallax.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/revslider-index-page.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/woocommerce/js/woocommerce.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/superfish.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/core.utils.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/core.init.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/tpl.init.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/shortcodes.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/photostack/modernizr.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/magnific/jquery.magnific-popup.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/core.messages/core.messages.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/skrollr/dist/skrollr.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/vendor/isotope/dist/isotope.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/core.googlemap.js') }}"></script>
+
+        {{ encore_entry_script_tags('app') }}
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/revslider-homepage-1.js') }}"></script>
+
+    {% endblock %}
+
+    </body>
+</html>

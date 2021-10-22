@@ -2,9 +2,13 @@
 
 namespace App\Repository;
 
+use App\Entity\Group;
 use App\Entity\Trick;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
+use mysql_xdevapi\Result;
 
 /**
  * @method Trick|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,6 +18,9 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TrickRepository extends ServiceEntityRepository
 {
+
+    public const PAGINATOR_PER_PAGE = 15;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Trick::class);
@@ -47,4 +54,15 @@ class TrickRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getTricksPaginated(int $offset)
+    {
+        return $this->createQueryBuilder('t')
+            ->orderBy('t.createdAt', 'DESC')
+            ->setMaxResults(self::PAGINATOR_PER_PAGE)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult(AbstractQuery::HYDRATE_OBJECT)
+        ;
+    }
 }
