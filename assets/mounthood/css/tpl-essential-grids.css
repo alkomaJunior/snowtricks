@@ -1,0 +1,268 @@
+.myportfolio-container .added_to_cart.wc-forward {
+    font-family: "Open Sans";
+    font-size: 13px;
+    color: #fff;
+    margin-top: 10px
+}
+.esgbox-title.esgbox-title-outside-wrap {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center
+}
+.esgbox-title.esgbox-title-inside-wrap {
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center
+}
+
+.custom-1 .navigationbuttons,
+.custom-1 .esg-pagination,
+.custom-1 .esg-filters {
+    text-transform: uppercase;
+    text-align: center
+}
+
+.custom-1 .esg-filterbutton,
+.custom-1 .esg-navigationbutton,
+.custom-1 .esg-sortbutton,
+.custom-1 .esg-cartbutton {
+    color: #000;
+    margin-right: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    padding: 1px 30px;
+    border: none;
+    line-height: 38px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    display: inline-block;
+    background: #fff;
+    margin-bottom: 5px
+}
+
+.custom-1 .esg-navigationbutton {
+    padding: 2px 12px
+}
+
+.custom-1 .esg-navigationbutton * {
+    color: #000
+}
+
+.custom-1 .esg-pagination-button:last-child {
+    margin-right: 0
+}
+
+.custom-1 .esg-sortbutton-wrapper,
+.custom-1 .esg-cartbutton-wrapper {
+    display: inline-block
+}
+
+.custom-1 .esg-sortbutton-order,
+.custom-1 .esg-cartbutton-order {
+    display: inline-block;
+    vertical-align: top;
+    border: none;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    background: #fff;
+    margin-left: 5px
+}
+
+.custom-1 .esg-cartbutton {
+    color: #fff;
+    cursor: default !important
+}
+
+.custom-1 .esg-cartbutton .esgicon-basket {
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    margin-right: 10px
+}
+
+.custom-1 .esg-cartbutton-wrapper {
+    cursor: default !important
+}
+
+.custom-1 .esg-sortbutton,
+.custom-1 .esg-cartbutton {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px
+}
+
+.custom-1 .esg-navigationbutton:hover,
+.custom-1 .esg-filterbutton:hover,
+.custom-1 .esg-sortbutton:hover,
+.custom-1 .esg-sortbutton-order:hover,
+.custom-1 .esg-cartbutton-order:hover,
+.custom-1 .esg-filterbutton.selected {
+    border-color: transparent;
+    color: #000;
+    background: #fff
+}
+
+.custom-1 .esg-navigationbutton:hover * {
+    color: #333
+}
+
+.custom-1 .esg-sortbutton-order.tp-desc:hover {
+    color: #333
+}
+
+.custom-1 .esg-filter-checked {
+    padding: 1px 3px;
+    color: #cbcbcb;
+    background: #cbcbcb;
+    margin-left: 7px;
+    font-size: 9px;
+    font-weight: 300;
+    line-height: 9px;
+    vertical-align: middle
+}
+
+.custom-1 .esg-filterbutton.selected .esg-filter-checked,
+.custom-1 .esg-filterbutton:hover .esg-filter-checked {
+    padding: 1px 3px 1px 3px;
+    color: #fff;
+    background: #000;
+    margin-left: 7px;
+    font-size: 9px;
+    font-weight: 300;
+    line-height: 9px;
+    vertical-align: middle
+}
+
+.custom-1 .esg-entry-cover .esg-overlay {
+    width: auto;
+    height: auto;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px
+}
+
+.eg-custom-skin-1-element-10-a {
+    display: block;
+    text-align: center;
+    clear: both;
+    margin: 19px 0 0 0;
+    position: relative
+}
+
+.eg-custom-skin-1-element-10 {
+    font-size: 24px;
+    line-height: 24px;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 100px 0 100px;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 2 !important;
+    display: block;
+    font-family: "Montserrat";
+    text-transform: uppercase
+}
+
+.eg-custom-skin-1-element-12 {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 2 !important;
+    display: block;
+    font-family: "Montserrat";
+    text-transform: uppercase
+}
+
+.eg-custom-skin-1-element-10:hover {
+    font-size: 24px;
+    line-height: 24px;
+    color: #a3a3a3;
+    font-weight: 700;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Montserrat";
+    text-transform: uppercase
+}
+
+.eg-custom-skin-1-element-12:hover {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Montserrat";
+    text-transform: uppercase
+}
+
+.eg-custom-skin-1-element-12-a {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    float: none;
+    clear: both;
+    margin: 17px 0 0 0;
+    position: relative
+}
+
+.eg-custom-skin-1-container {
+    background-color: rgba(0, 0, 0, 0.65)
+}
+.eg-custom-skin-1-content {
+    background-color: #ffffff;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+    border-color: transparent;
+    border-style: double;
+    text-align: left
+}
+.esg-grid .mainul li.eg-custom-skin-1-wrapper {
+    background-color: #3f424a;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+    border-color: transparent;
+    border-style: none
+}
+
+.esg-grid .mainul li.eg-custom-skin-1-wrapper .esg-media-poster {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.esg-grid{
+    background-color: transparent;
+    padding: 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
