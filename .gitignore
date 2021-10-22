@@ -1,5 +1,6 @@
 ###> project folder and files ###
 /.idea/
+/assets/
 ###< project folder and files ###
 
 ###> symfony/framework-bundle ###

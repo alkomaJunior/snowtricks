@@ -9,7 +9,7 @@ use App\Entity\Traits\Timestampable;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
- * @ORM\Table(name="`images`")
+ * @ORM\Table(name="`img`")
  * @ORM\HasLifecycleCallbacks
  */
 class Image

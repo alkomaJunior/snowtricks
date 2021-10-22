@@ -9,8 +9,8 @@ use Twig\Environment;
 
 class TwigEventSubscriber implements EventSubscriberInterface
 {
-    private $twig;
-    private $groupRepository;
+    private Environment $twig;
+    private GroupRepository $groupRepository;
 
     public function __construct(Environment $twig, GroupRepository $groupRepository)
     {

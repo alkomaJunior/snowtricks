@@ -21,9 +21,9 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('card', './assets/js/card.min.js')
-    .addEntry('modernizr', './assets/js/modernizr.min.js')
-    .addEntry('theme', './assets/js/theme.min.js')
+
+
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -75,20 +75,24 @@ Encore
     //.autoProvidejQuery()
 
     .copyFiles({
-        from: './assets/styles/css/',
-        to: 'css/[path][name].[ext]'
+        from: './assets/img/',
+        to: 'img/[path][name].[ext]'
     })
     .copyFiles({
-        from: './assets/fonts/',
-        to: 'fonts/[path][name].[ext]'
+        from: './assets/mounthood/css',
+        to: 'mounthood/css/[path][name].[ext]'
     })
     .copyFiles({
-        from: './assets/js/vendor/',
-        to: 'js/vendor/[path][name].[ext]'
+        from: './assets/mounthood/images',
+        to: 'mounthood/images/[path][name].[ext]'
     })
     .copyFiles({
-        from: './assets/images/',
-        to: 'images/[path][name].[ext]'
+        from: './assets/mounthood/js',
+        to: 'mounthood/js/[path][name].[ext]'
+    })
+    .copyFiles({
+        from: './assets/mounthood/maps',
+        to: 'mounthood/maps/[path][name].[ext]'
     })
 
 ;

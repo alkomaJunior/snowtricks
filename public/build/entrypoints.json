@@ -2,40 +2,12 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.e4b160ba.js",
-        "/build/368.49afd724.js",
-        "/build/846.dc87d128.js",
-        "/build/907.a591cdbd.js",
-        "/build/app.6e5728d6.js"
+        "/build/runtime.f3575a88.js",
+        "/build/687.0a379f42.js",
+        "/build/app.df2fe954.js"
       ],
       "css": [
-        "/build/app.b75294ae.css"
-      ]
-    },
-    "card": {
-      "js": [
-        "/build/runtime.e4b160ba.js",
-        "/build/368.49afd724.js",
-        "/build/846.dc87d128.js",
-        "/build/919.7744e1a1.js",
-        "/build/330.0f1bee8d.js",
-        "/build/card.e9ff8ba5.js"
-      ]
-    },
-    "modernizr": {
-      "js": [
-        "/build/runtime.e4b160ba.js",
-        "/build/368.49afd724.js",
-        "/build/846.dc87d128.js",
-        "/build/919.7744e1a1.js",
-        "/build/modernizr.3129206c.js"
-      ]
-    },
-    "theme": {
-      "js": [
-        "/build/runtime.e4b160ba.js",
-        "/build/368.49afd724.js",
-        "/build/theme.eab79863.js"
+        "/build/app.6c159fc3.css"
       ]
     }
   }
