@@ -120,6 +120,9 @@
     </div>
     <!-- /Page content wrap -->
 
+    <!-- /Body wrap -->
+    <div id="page-wrap"></div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function (){
@@ -148,7 +151,8 @@
                         beforeSend:function(){
                             loadMoreButtonSelector.text("{{ 'Loading...'|trans }}");
                         },
-                        success: function(data){
+                        success: function(data)
+                        {
 
                             console.log(offset)
 
@@ -159,14 +163,24 @@
 
                                 let offsetNo = offset + perPage;
 
+                                if (offsetNo > perPage)
+                                {
+                                    let bodyWrap = $("#page-wrap");
+                                    bodyWrap.append("<a href='#' class='scroll_to_top icon-up-small text-dark' title='Scroll to top'></a>");
+                                }
+
                                 // checking row value is greater than allTricks or not
-                                if(offsetNo > allTricks){
+                                if(offsetNo > allTricks)
+                                {
 
                                     // Change the text and background
                                     loadMoreButtonSelector.text("{{ 'Hide'|trans }}");
                                     loadMoreButtonSelector.css("background","#ed7014");
                                     loadMoreButtonSelector.prepend("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-eye-off'><path d='M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24'></path><line x1='1' y1='1' x2='23' y2='23'></line></svg>&nbsp;")
-                                }else{
+                                }
+
+                                else
+                                {
                                     loadMoreButtonSelector.text("{{ 'Load more'|trans }}");
                                     loadMoreButtonSelector.prepend("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-loader'><line x1='12' y1='2' x2='12' y2='6'></line><line x1='12' y1='18' x2='12' y2='22'></line><line x1='4.93' y1='4.93' x2='7.76' y2='7.76'></line><line x1='16.24' y1='16.24' x2='19.07' y2='19.07'></line><line x1='2' y1='12' x2='6' y2='12'></line><line x1='18' y1='12' x2='22' y2='12'></line><line x1='4.93' y1='19.07' x2='7.76' y2='16.24'></line><line x1='16.24' y1='7.76' x2='19.07' y2='4.93'></line></svg>&nbsp;");
                                 }
@@ -178,7 +192,7 @@
                 }
 
                 else{
-                    loadMoreButtonSelector.text("Loading...");
+                    loadMoreButtonSelector.text("{{ 'Loading...'|trans }}");
 
                     // Setting little delay while removing contents
                     setTimeout(function() {
@@ -196,13 +210,13 @@
 
                     }, 1000);
 
-
                 }
 
             });
         });
 
     </script>
+
 
 
 {% endblock %}
