@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    {{ include('layouts/partials/_navbarDesktop.html.twig') }}
-    {{ include('layouts/partials/_navbarMobile.html.twig') }}
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'homeActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'homeActiveClass': 'current-menu-item'}) }}
     <!-- Page content wrap -->
     <div class="page_content_wrap page_paddings_no">
         <!-- Content -->

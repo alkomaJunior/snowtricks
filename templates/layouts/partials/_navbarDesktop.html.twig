@@ -18,17 +18,17 @@
                     <nav class="menu_main_nav_area menu_hover_slide_line">
                         <ul id="menu_main" class="menu_main_nav">
                             <!-- Menu: Home -->
-                            <li class="menu-item">
-                                <a href="#"><span> {{ 'Home'|trans }}</span></a>
+                            <li class="menu-item {{ homeActiveClass ?? "" }}">
+                                <a href="{{ path('home') }}"><span> {{ 'Home'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Home -->
                             <!-- Menu: Sign in -->
-                            <li class="menu-item">
-                                <a href="#"><span> {{ 'Sign in'|trans }}</span></a>
+                            <li class="menu-item {{ signInActiveClass ?? "" }}">
+                                <a href="{{ path('app_login') }}"><span> {{ 'Sign in'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Sign in -->
                             <!-- Menu: sign up -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ signUpActiveClass ?? "" }}">
                                 <a href="#"><span> {{ 'Sign up'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Sign up -->
