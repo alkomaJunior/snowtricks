@@ -73,7 +73,7 @@ class UserController extends AbstractController
             $user->setSlug($user->getPseudo());
 
             // Activation mail
-            $emailMessage = (new TemplatedEmail())
+            $email = (new TemplatedEmail())
                 ->from('no-reply@snowtricks.com')
                 ->to($user->getEmail())
                 ->subject($this->translator->trans('Thanks for signing up!'))
@@ -89,7 +89,7 @@ class UserController extends AbstractController
                 ])
             ;
 
-            $mailer->send($emailMessage);
+            $mailer->send($email);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
