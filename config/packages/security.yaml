@@ -1,8 +1,4 @@
 security:
-
-    #Enabling new Authenticator-based Security
-    enable_authenticator_manager: true
-
     encoders:
         App\Entity\User:
             algorithm: auto
@@ -19,6 +15,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|img|js)/
             security: false
         main:
+            anonymous: true
             lazy: true
             provider: app_user_provider
             guard:

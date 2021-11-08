@@ -6,13 +6,17 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Entity\Traits\Timestampable;
 use App\Entity\Traits\Slug;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity("email")
+ * @UniqueEntity("pseudo")
  * @ORM\Table(name="`users`")
+ * @ORM\HasLifecycleCallbacks
  */
 class User implements UserInterface
 {
@@ -43,10 +47,12 @@ class User implements UserInterface
      */
     private $password;
 
+    private $plainPassword;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $userName;
+    private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -117,6 +123,8 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
+
+
     /**
      * @see UserInterface
      */
@@ -170,9 +178,17 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
     }
 
-    public function setUserName(string $userName): self
+    /**
+     * @return mixed
+     */
+    public function getPseudo(): ?string
     {
-        $this->userName = $userName;
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
 
         return $this;
     }
@@ -180,6 +196,22 @@ class User implements UserInterface
     public function getAvatar(): ?string
     {
         return $this->avatar;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     public function setAvatar(?string $avatar): self
@@ -224,6 +256,7 @@ class User implements UserInterface
 
         return $this;
     }
+
 
     /**
      * @return Collection|Trick[]

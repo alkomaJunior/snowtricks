@@ -6,7 +6,7 @@
                 <!-- Contact logo -->
                 <div class="column-1_3 contact_logo">
                     <div class="logo">
-                        <a href="#">
+                        <a href="{{ path('home') }}">
                             <img src="{{ asset('build/mounthood/images/logo.png') }}" class="logo_main" alt="">
                             <img src="{{ asset('build/mounthood/images/logo.png') }}" class="logo_fixed" alt="">
                         </a>
@@ -22,16 +22,24 @@
                                 <a href="{{ path('home') }}"><span> {{ 'Home'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Home -->
-                            <!-- Menu: Sign in -->
-                            <li class="menu-item {{ signInActiveClass ?? "" }}">
-                                <a href="{{ path('app_login') }}"><span> {{ 'Sign in'|trans }}</span></a>
+                            <!-- Menu: Sign in tricks when user is logged in -->
+                            <li class="menu-item {{ signInActiveClass ?? "" }} {{ tricksActiveClass ?? "" }}">
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <a href="#"><span> {{ 'Tricks'|trans }}</span></a>
+                                {% else %}
+                                    <a href="{{ path('app_login') }}"><span> {{ 'Sign in'|trans }}</span></a>
+                                {% endif %}
                             </li>
-                            <!-- /Menu: Sign in -->
-                            <!-- Menu: sign up -->
+                            <!-- /Menu: Sign in tricks when user is logged in -->
+                            <!-- Menu: sign up logout when user is logged in -->
                             <li class="menu-item {{ signUpActiveClass ?? "" }}">
-                                <a href="#"><span> {{ 'Sign up'|trans }}</span></a>
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <a href="{{ path('app_logout') }}"><span> {{ 'Logout'|trans }}</span></a>
+                                {% else %}
+                                    <a href="{{ path('user_sign_up') }}"><span> {{ 'Sign up'|trans }}</span></a>
+                                {% endif %}
                             </li>
-                            <!-- /Menu: Sign up -->
+                            <!-- /Menu: Sign up logout when user is logged in -->
                         </ul>
                     </nav>
                 </div>

@@ -1,0 +1,19 @@
+.scroll-to-top-btn {
+    background-color: #ff0;
+    bottom: 140px;
+    color: #000;
+    display: block;
+    font-size: 1.3125rem;
+    height: 48px;
+    position: absolute;
+    right: 1rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s, background-color 0.3s, border-color 0.3s;
+    transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.3s, background-color 0.3s, border-color 0.3s;
+    width: 48px;
+    z-index: 1050;
+}
+.scroll-to-top-btn:hover {
+    background-color: gold;
+}
