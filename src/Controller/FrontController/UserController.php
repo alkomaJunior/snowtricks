@@ -5,6 +5,8 @@ namespace App\Controller\FrontController;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use DateTime;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,10 +25,12 @@ class UserController extends AbstractController
 {
 
     private $translator;
+    private $mailer;
 
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, MailerInterface $mailer)
     {
         $this->translator = $translator;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -45,8 +49,7 @@ class UserController extends AbstractController
      */
     public function new(
         Request $request,
-        UserPasswordEncoderInterface $passwordEncoder,
-        MailerInterface $mailer
+        UserPasswordEncoderInterface $passwordEncoder
     ): Response {
 
         // User form building
@@ -89,7 +92,7 @@ class UserController extends AbstractController
                 ])
             ;
 
-            $mailer->send($email);
+            $this->mailer->send($email);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -116,6 +119,8 @@ class UserController extends AbstractController
      * @param $token
      * @param UserRepository $user
      * @return RedirectResponse
+     * @throws TransportExceptionInterface
+     * @throws Exception
      */
     public function activation($token, UserRepository $user): Response
     {
@@ -130,12 +135,46 @@ class UserController extends AbstractController
 
         // Deletion of the token
         $user->setActivationToken(null);
-        $user->setIsActive(true);
+
+        if (new DateTime("now") > date_add(
+            new DateTime($user->getCreatedAt()->format("Y-m-d H:i:s")),
+            date_interval_create_from_date_string('5 minute')
+        )) {
+            $user->setActivationToken(md5(uniqid()));
+            // Activation mail
+            $email = (new TemplatedEmail())
+                ->from('jimmysnowtricks@gmail.com')
+                ->to($user->getEmail())
+                ->subject($this->translator->trans('Thanks for signing up!'))
+
+                // path of the Twig template to render
+                ->htmlTemplate('emails/signup.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+                    'activationToken' => $user->getActivationToken(),
+                    'emailAddress' => $user->getEmail(),
+                    'pseudo' => $user->getPseudo()
+                ])
+            ;
+
+            $this->mailer->send($email);
+            $user->setCreatedAt(new DateTime("now"));
+            $user->setUpdatedAt(new DateTime("now"));
+        } else {
+            $user->setIsActive(true);
+        }
+
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('success', $this->translator->trans('Account successfully activated!'));
+        if (!$user->getIsActive()) {
+            $this->addFlash('success', $this->translator
+                ->trans('Your link has expired. A new one was sent to your email address.'));
+        } else {
+            $this->addFlash('success', $this->translator->trans('Account successfully activated!'));
+        }
 
         return $this->redirectToRoute('home');
     }

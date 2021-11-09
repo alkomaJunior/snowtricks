@@ -1,0 +1,40 @@
+{% extends 'layouts/_base.html.twig' %}
+
+{% block title %}{{ 'Password Reset Email Sent'|trans }}{% endblock %}
+
+{% block body %}
+
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'signInActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'signInActiveClass': 'current-menu-item'}) }}
+
+
+
+    <!-- Page content wrap -->
+    <div class="page_content_wrap page_paddings_no">
+        <!-- Content -->
+        <div class="content">
+            <article class="post_item post_item_single page">
+                <section class="post_content">
+                    <div class="content_wrap mt-5" style="margin-bottom: 10%; padding-top: 10%;">
+                        <div class="w-100">
+                            <div class="sc_services sc_services_style_services-3 sc_services_type_icons title_center width_100_per" id="tricksList">
+                                <h2 class="sc_services_title sc_item_title sc_item_title_with_descr"> {{ 'Reset your password'|trans }}</h2>
+                                <div class="sc_services_descr sc_item_descr" style="margin-bottom: -1%;">
+                                    <p>
+                                        {{ "If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password."|trans }}
+                                        {{ "This link will expire in"|trans~" "~resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                                    </p>
+                                    <p>{{ "If you don't receive an email please check your spam folder or"|trans }} <a href="{{ path('app_forgot_password_request') }}">{{ 'try again'|trans }}</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+        <!-- /Content -->
+    </div>
+    <!-- /Page content wrap -->
+
+{% endblock %}
+

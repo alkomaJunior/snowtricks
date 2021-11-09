@@ -9,7 +9,8 @@ The directory of all figures entered by users: L'annuaire de toutes les figures 
 Load more: Afficher plus
 Loading...: Chargement...
 Hide: Réduire
-Please enter your login and password: Veuillez entrez vos identifiants de connexion
+Please enter your login and password: Veuillez entrer vos identifiants de connexion
+Please enter your new password: Veuillez entrer votre nouveau mot de passe
 Username: Nom d'utilisateur
 Password: Mot de passe
 Email address: Adresse email
@@ -18,16 +19,16 @@ Tricks: Figures
 Invalid credentials!: Identifiants invalides !
 Register: S'inscrire
 Cancel: Annuler
-Confirm password: Confimation du mot de passe
+Confirm password: Répétez le mot de passe
 Please fill this form to register for an account: Veuillez remplir ce formulaire pour créer un compte
-These fields are not the same: Ces champ ne sont pas identiques
+The password fields must match.: Les champs correspondant au mot de passe doivent correspondre.
 This field is missing: Ce champ ne dois pas être vide
 This field is not a valid email address: Cette adresse email est incorrecte
 Thanks for signing up!: Merci de vous être inscrit !
 Almost done,: Presque fini,
 Please: Veuillez
 activate your account: activer votre compte
-Verify email address: Vérifier l'adresse e-mail
+Verify email address: VERIFIER L'EMAIL
 Page not found!: Page non trouvée !
 Email us: Envoyez-nous un courriel
 Account activation: Activation de compte
@@ -36,3 +37,26 @@ An activation link was sent to your email address. Please check to activate your
 To complete your registration on our SNOWTRICKS community website, we just need to verify your email address: Pour terminer votre inscription sur notre site web communautaire SNOWTRICKS, nous avons juste besoin de vérifier votre adresse e-mail
 Once verified, you can start post and manage new tricks. You are receiving this email beacause you recently created a new SNOWTRICKS account. If it wasn't you, please ignore this email.: Une fois vérifié, vous pouvez commencer à publier et à gérer de nouvelles figures de tricks. Vous recevez cet e-mail car vous avez récemment créé un nouveau compte SNOWTRICKS. Si ce n'est pas vous, veuillez ignorer cet e-mail.
 Account successfully activated!: Compte activé avec succès !
+Your link has expired. A new one was sent to your email address.: Votre lien a expiré. Un nouveau lien a été envoyé à votre adresse électronique.
+Error: Erreur
+And/or: Et/ou
+New password: Nouveau mot de passe
+Your password should be at least: Votre mot de passe doit comporter au moins
+characters: caractères
+Forgot Password?: Mot de passe oublié ?
+Reset your password: Réinitialisation de mot de passe
+Send password reset email: Réinitialiser
+If you don't receive an email please check your spam folder or: Si vous ne recevez pas d'email, vérifiez vos spams ou
+If you don't receive an email please check your spam folder: Si vous ne recevez pas d'email, vérifiez vos spams
+try again: réessayer
+No reset password token found in the URL or in the session.: Aucun token de réinitialisation n'a été trouvé dans l'URL ou dans la session.
+Password Reset Email Sent: Mail de réinitialisation
+This link will expire in: Ce lien expirera dans
+Cheers!: Bien à vous !
+Password successfully changed: Le mot de passe a été changé avec succès
+Instead of the following button you can use this link: Si le boutton ne marche pas, vous pouvez utiliser ce lien
+To reset your password, please visit the following link: Pour réinitialiser votre mot de passe, veuillez consulter le lien suivant
+If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.: Si un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+Your password reset request: Votre demande de réinitialisation du mot de passe
+There was a problem validating your reset request: Il y a eu un problème de validation de votre demande de réinitialisation. Le lien de réinitialisation du mot de passe n'est pas valide et/ou a expiré. Veuillez essayer de réinitialiser votre mot de passe à nouveau.
+Enter your email address and we will send you a link to reset your password.: Saisissez votre adresse électronique et nous vous enverrons un lien pour réinitialiser votre mot de passe.

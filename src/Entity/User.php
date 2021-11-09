@@ -80,11 +80,6 @@ class User implements UserInterface
     private $tricks;
 
     /**
-     * @ORM\OneToMany(targetEntity=LoginAttempt::class, mappedBy="user")
-     */
-    private $loginAttempts;
-
-    /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user")
      */
     private $comments;
@@ -92,7 +87,6 @@ class User implements UserInterface
     public function __construct()
     {
         $this->tricks = new ArrayCollection();
-        $this->loginAttempts = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -282,36 +276,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($trick->getUser() === $this) {
                 $trick->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|LoginAttempt[]
-     */
-    public function getLoginAttempts(): Collection
-    {
-        return $this->loginAttempts;
-    }
-
-    public function addLoginAttempt(LoginAttempt $loginAttempt): self
-    {
-        if (!$this->loginAttempts->contains($loginAttempt)) {
-            $this->loginAttempts[] = $loginAttempt;
-            $loginAttempt->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLoginAttempt(LoginAttempt $loginAttempt): self
-    {
-        if ($this->loginAttempts->removeElement($loginAttempt)) {
-            // set the owning side to null (unless already changed)
-            if ($loginAttempt->getUser() === $this) {
-                $loginAttempt->setUser(null);
             }
         }
 
