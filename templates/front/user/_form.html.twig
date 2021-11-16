@@ -1,0 +1,26 @@
+{{ form_start(form, {'attr': {'class':'sc_input_hover_default'}}) }}
+    <div class="sc_form_info">
+        <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
+            <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+                {{ form_label(form.pseudo, 'Username'|trans, {'label_attr': {'class': 'h5 pb-2'}}) }}
+                {{ form_widget(form.pseudo, {'attr': {'class': 'form-control', 'placeholder': 'elfatima', 'autofocus': 'true'}}) }}
+            </div>
+            <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+                {{ form_label(form.email, 'Email address'|trans, {'label_attr': {'class': 'h5 pb-2'}}) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'fatima.elb@gmail.com'}}) }}
+            </div>
+            <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+                {{ form_label(form.plainPassword.first, 'Password'|trans, {'label_attr': {'class': 'h5 pb-2'}}) }}
+                {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
+            </div>
+            <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+                {{ form_label(form.plainPassword.second, 'Confirm password'|trans, {'label_attr': {'class': 'h5 pb-2'}}) }}
+                {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="sc_form_item sc_form_button pt-3" style="margin-bottom: -15%">
+        <button class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium sc_button_iconed icon-check" type="submit" formnovalidate>{{ 'Register'|trans }}</button>
+    </div>
+    <div class="result sc_infobox"></div>
+{{ form_end(form) }}
