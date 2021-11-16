@@ -15,7 +15,7 @@ Username: Nom d'utilisateur
 Password: Mot de passe
 Email address: Adresse email
 Logout: Déconnexion
-Tricks: Figures
+New Trick: Nouvelle Figure
 Invalid credentials!: Identifiants invalides !
 Register: S'inscrire
 Cancel: Annuler
@@ -53,10 +53,24 @@ No reset password token found in the URL or in the session.: Aucun token de réi
 Password Reset Email Sent: Mail de réinitialisation
 This link will expire in: Ce lien expirera dans
 Cheers!: Bien à vous !
+Profile: Mon Profil
 Password successfully changed: Le mot de passe a été changé avec succès
 Instead of the following button you can use this link: Si le boutton ne marche pas, vous pouvez utiliser ce lien
 To reset your password, please visit the following link: Pour réinitialiser votre mot de passe, veuillez consulter le lien suivant
 If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.: Si un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
 Your password reset request: Votre demande de réinitialisation du mot de passe
-There was a problem validating your reset request: Il y a eu un problème de validation de votre demande de réinitialisation. Le lien de réinitialisation du mot de passe n'est pas valide et/ou a expiré. Veuillez essayer de réinitialiser votre mot de passe à nouveau.
+Group: Groupe
+Close: Fermer
+Add: Ajouter
+Name: Nom
+Browse: Parcourir
+Trick has been successfully created: Figure créée avec succès
+Description: Description
+Please choose some/a video(s)/image(s): Veuillez choisir une/des video(s)/image(s)
+Please choose a group: Veuillez choisir un groupe
+Please enter the Trick name: Veuillez entrer le nom de la figure
+Please enter the Trick description: Veuillez entrer la description de la figure
+The size of your medias should not exceed: La taille de vos medias ne doit pas excéder
+The valid extensions list [jpeg, png, avi, mp4, webm]: La liste valide des extensions [jpeg, png, avi, mp4, webm]
+There was a problem validating your reset request: Il y a eu un problème de validation de votre demande de réinitialisation. Le lien de réinitialisation du mot de passe n'est pas valide et/ou a expiré ou encore une demande est déjà en cours. Veuillez essayer de réinitialiser votre mot de passe à nouveau.
 Enter your email address and we will send you a link to reset your password.: Saisissez votre adresse électronique et nous vous enverrons un lien pour réinitialiser votre mot de passe.

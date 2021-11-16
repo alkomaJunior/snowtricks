@@ -1,4 +1,44 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<style>
+    input::placeholder, textarea::placeholder, select, option{
+        font-family: "Montserrat", sans-serif;
+    }
+    .custom-file-label::after {
+        content: "{{ 'Browse'|trans }}";
+    }
+</style>
+
+<div class="sc_form_info">
+    <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
+        <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+            {{ form_label(form.name, 'Name'|trans, {'label_attr': {'class': 'h5 pb-2 form-label'}}) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control p-2', 'placeholder': 'Please enter the Trick name'|trans, 'autofocus': 'true'}}) }}
+        </div>
+        <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+            {{ form_label(form.trickGroup, 'Group'|trans, {'label_attr': {'class': 'h5 pb-2 form-label'}}) }}
+            {{ form_widget(form.trickGroup, {'attr': {'class': 'form-control p-2'}}) }}
+        </div>
+        <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+            {{ form_label(form.media, 'Medias', {'label_attr': {'class': 'h5 pb-2 form-label'}}) }}
+            {{ form_widget(form.media, {'attr': {'class': 'form-control p-2'}}) }}
+        </div>
+        <div class="sc_form_item sc_form_field label_over column-1_1 p-3">
+            {{ form_label(form.description, 'Description'|trans, {'label_attr': {'class': 'h5 pb-2 form-label'}}) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control p-2', 'placeholder': 'Please enter the Trick description'|trans, 'rows': '6'}}) }}
+        </div>
+    </div>
+</div>
+<div class="sc_form_item sc_form_button pt-3" style="margin-bottom: -15%">
+    <button class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium sc_button_iconed icon-check" type="submit" formnovalidate>{{ 'Add'|trans }}</button>
+</div>
+<div class="result sc_infobox"></div>
 {{ form_end(form) }}
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script>
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+    })
+</script>

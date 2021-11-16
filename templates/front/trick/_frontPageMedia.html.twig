@@ -1,0 +1,5 @@
+{% if frontPageImg is not null %}
+    <img alt="{{ frontPageImg.trick.name }}" src="{{ asset('uploads/medias/'~frontPageImg.mediaFileName)|imagine_filter('trickIndex') }}">
+{% else %}
+    <img alt="Default Trick Image" src="{{ asset('build/mounthood/images/image-4-370x243.jpg')|imagine_filter('trickIndex') }}">
+{% endif %}

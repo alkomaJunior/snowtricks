@@ -1,11 +1,48 @@
-<!DOCTYPE html>
+{% extends 'layouts/_base.html.twig' %}
 
-<title>New Trick</title>
+{% block title %}{{ 'New Trick'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Create new Trick</h1>
 
-    {{ include('trick/_form.html.twig') }}
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'homeUpActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'homeActiveClass': 'current-menu-item'}) }}
 
-    <a href="{{ path('trick_index') }}">back to list</a>
+    <!-- Page content wrap -->
+    <div class="page_content_wrap page_paddings_no">
+        <!-- Content -->
+        <div class="content">
+            <article class="post_item post_item_single page">
+                <section class="post_content">
+                    <div class="content_wrap mt-5">
+                        <div class="w-100">
+                            <div class="sc_services sc_services_style_services-3 sc_services_type_icons title_center width_100_per" id="tricksList">
+                                <h2 class="sc_services_title sc_item_title sc_item_title_with_descr"> {{ 'New Trick'|trans }}</h2>
+                                <div class="sc_services_descr sc_item_descr" style="margin-bottom: -1%;">{{ 'Please fill this form to register for an account'|trans }}.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Trick form -->
+                    <div class="content_wrap" style="padding-bottom: 7%; padding-top: 3%;">
+                        <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_6">
+                            <div class="column-1_6 sc_column_item sc_column_item_1 odd first"></div>
+                            <div class="column-4_6 sc_column_item sc_column_item_2 even span_4" style="border: #1b1b1b solid 2px;">
+                                <div id="sc_form_2_wrap" class="sc_form_wrap">
+                                    <div id="sc_form_2" class="text-center sc_form_style_form_1 margin_top_small margin_bottom_large">
+
+                                        {{ include('front/trick/_form.html.twig') }}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /New Trick form -->
+                </section>
+            </article>
+        </div>
+        <!-- /Content -->
+    </div>
+    <!-- /Page content wrap -->
+
 {% endblock %}
