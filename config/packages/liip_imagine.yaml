@@ -32,3 +32,18 @@ liip_imagine:
                 thumbnail:
                     size: [ 370, 243 ]
                     mode: outbound
+
+        # the name of the "filter set"
+        trickShow:
+
+            # adjust the image quality to 75%
+            quality: 75
+
+            # list of transformations to apply (the "filters")
+            filters:
+
+                # create a thumbnail: set size to 120x90 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail:
+                    size: [ 2300, 1513 ]
+                    mode: outbound

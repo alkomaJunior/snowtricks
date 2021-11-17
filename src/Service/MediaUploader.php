@@ -6,16 +6,19 @@ use App\Entity\Media;
 use App\Entity\Trick;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class MediaUploader
 {
     private $targetDir;
     private $slugger;
+    protected $requestStack;
 
-    public function __construct(string $mediasDir, SluggerInterface $slugger)
+    public function __construct(string $mediasDir, SluggerInterface $slugger, RequestStack $requestStack)
     {
         $this->targetDir = $mediasDir;
         $this->slugger = $slugger;
+        $this->requestStack = $requestStack;
     }
 
     /**
@@ -43,6 +46,22 @@ class MediaUploader
     }
 
     /**
+     * @param RequestStack $requestStack
+     */
+    public function setRequestStack(RequestStack $requestStack): void
+    {
+        $this->requestStack = $requestStack;
+    }
+
+    /**
+     * @return RequestStack
+     */
+    public function getRequestStack(): RequestStack
+    {
+        return $this->requestStack;
+    }
+
+    /**
      * @param SluggerInterface $slugger
      */
     public function setSlugger(SluggerInterface $slugger): void
@@ -65,6 +84,8 @@ class MediaUploader
 
             $mediaFile = new Media();
 
+            $request = $this->requestStack->getCurrentRequest();
+
             (
                 strpos($fileName, 'jpg')
                 || strpos($fileName, 'png')
@@ -75,7 +96,8 @@ class MediaUploader
             $mediaFile->setMediaFileName($fileName);
             $mediaFile->setSlug(strtolower(preg_replace('/\s+/', '', $fileName)));
 
-            ($index === 0) ? $mediaFile->setIsFrontPageMedia(true) : $mediaFile->setIsFrontPageMedia(false);
+            ($index === 0 && $request->getMethod() === 'POST') ?
+                $mediaFile->setIsFrontPageMedia(true) : $mediaFile->setIsFrontPageMedia(false);
 
             $trick->addMedium($mediaFile);
         }

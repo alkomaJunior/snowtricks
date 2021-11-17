@@ -63,17 +63,17 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="trick_show", methods={"GET"})
+     * @Route("/{slug}", name="trick_show", methods={"GET"})
      */
     public function show(Trick $trick): Response
     {
-        return $this->render('trick/show.html.twig', [
+        return $this->render('front/trick/show.html.twig', [
             'trick' => $trick,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="trick_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="trick_edit", methods={"GET","PUT"})
      */
     public function edit(Request $request, Trick $trick): Response
     {
@@ -83,10 +83,10 @@ class TrickController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('trick_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('trick/edit.html.twig', [
+        return $this->render('front/trick/edit.html.twig', [
             'trick' => $trick,
             'form' => $form->createView(),
         ]);

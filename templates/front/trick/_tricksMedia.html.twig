@@ -1,0 +1,23 @@
+<article class="post_item post_item_single page" id="myMedias">
+    <section class="post_content">
+        <div class="sc_blogger layout_masonry_3 template_masonry sc_blogger_horizontal">
+            <div class="isotope_wrap" data-columns="3">
+                {% for img in trick.media %}
+                    <!-- Trick images -->
+                    <div class="isotope_item isotope_item_masonry isotope_item_masonry_3 isotope_column_3">
+                        <div class="post_item post_item_masonry post_item_masonry_3	odd">
+                            <div class="post_featured">
+                                <div class="post_thumb">
+                                    <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~img.mediaFileName)|imagine_filter('trickShow') }}">
+                                        <img alt="{{ trick.name }}" src="{{ asset('uploads/medias/'~img.mediaFileName)|imagine_filter('trickIndex') }}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Trick images -->
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</article>

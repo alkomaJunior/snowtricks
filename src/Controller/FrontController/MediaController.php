@@ -25,4 +25,21 @@ class MediaController extends AbstractController
             'frontPageImg' => $frontPageImg
         ]);
     }
+
+    /**
+     * @Route("/front_img_/{trickId}", name="front_img_", methods={"GET"})
+     * @param int $trickId
+     * @return Response
+     */
+    public function frontPageImageShow(int $trickId): Response
+    {
+        $frontPageImg = $this->getDoctrine()->getRepository(Media::class)->findOneBy([
+            'trick' => $trickId,
+            'isFrontPageMedia' => true
+        ]);
+
+        return $this->render('front/trick/_frontPageMediaShow.html.twig', [
+            'frontPageImg' => $frontPageImg
+        ]);
+    }
 }
