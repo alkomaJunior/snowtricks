@@ -96,10 +96,30 @@ class MediaUploader
             $mediaFile->setMediaFileName($fileName);
             $mediaFile->setSlug(strtolower(preg_replace('/\s+/', '', $fileName)));
 
-            ($index === 0 && $request->getMethod() === 'POST') ?
+            ($index === 0 && $request->getPathInfo() === "/trick/new") ?
                 $mediaFile->setIsFrontPageMedia(true) : $mediaFile->setIsFrontPageMedia(false);
 
             $trick->addMedium($mediaFile);
         }
+    }
+
+    public function uploadByUrl(string $mediaUrl, Trick $trick)
+    {
+        $mediaFile = new Media();
+
+        (
+            strpos($mediaUrl, 'jpg')
+            || strpos($mediaUrl, 'png')
+            || strpos($mediaUrl, 'jpeg')
+            || strpos($mediaUrl, 'svg')
+        ) ? $mediaFile->setMediaType("Image") :
+            $mediaFile->setMediaType("Video");
+
+        $mediaFile->setMediaUrl($mediaUrl);
+
+        $mediaFile->setSlug("myMediaLink".$mediaFile->getId());
+        $mediaFile->setIsFrontPageMedia(false);
+
+        $trick->addMedium($mediaFile);
     }
 }

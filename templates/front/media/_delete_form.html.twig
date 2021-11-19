@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="dangerModal{{ trick.slug }}" tabindex="-1" aria-labelledby="tricksMediaLabel" aria-hidden="true">
+<div class="modal fade" id="dangerModal{{ img.slug }}" tabindex="-1" aria-labelledby="MediaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tricksMediaLabel">{{ 'Deletion confirmation'|trans }}</h5>
+                <h5 class="modal-title" id="MediaLabel">{{ 'Deletion confirmation'|trans }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,10 +12,10 @@
                 {{ 'Are you sure'|trans }} ??
             </div>
             <div class="modal-footer">
-                <form method="post" action="{{ path('trick_delete', {'slug': trick.slug}) }}" name="delete{{ trick.slug }}">
-                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.slug) }}">
+                <form method="post" action="{{ path('media_delete', {'slug': img.slug}) }}" name="delete{{ img.slug }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ img.slug) }}">
                     <a type="button" class="btn btn-danger text-white"
-                       onclick='document.forms.namedItem("delete{{ trick.slug }}").submit();'>{{ 'Delete'|trans }}</a>
+                       onclick='document.forms.namedItem("delete{{ img.slug }}").submit();'>{{ 'Delete'|trans }}</a>
                 </form>
             </div>
         </div>

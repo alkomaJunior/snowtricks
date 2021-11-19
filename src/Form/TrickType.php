@@ -46,6 +46,10 @@ class TrickType extends AbstractType
                     new NotBlank(['message' => $this->translator->trans('Please choose a group')]),
                 ]
             ])
+            ->add('mediaUrl', TextType::class, [
+                'mapped' => false,
+                'required' => false,
+            ])
             ->add('media', FileType::class, [
                 'mapped' => false,
                 'multiple' => true,
@@ -54,7 +58,7 @@ class TrickType extends AbstractType
                     new All([
                         'constraints' => [
                             new File([
-                                'maxSize' => '1024k',
+                                'maxSize' => '3072k',
                                 'maxSizeMessage' => $this->translator
                                         ->trans('The size of your medias should not exceed')
                                     . '{{ limit }}',
@@ -62,8 +66,6 @@ class TrickType extends AbstractType
                                     'image/jpeg',
                                     'image/png',
                                     'video/mp4',
-                                    'video/x-msvideo',
-                                    'video/webm',
                                 ],
                                 'mimeTypesMessage' => $this->translator
                                     ->trans("The valid extensions list [jpeg, png, avi, mp4, webm]"),

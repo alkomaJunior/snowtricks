@@ -63,6 +63,19 @@ class TrickRepository extends ServiceEntityRepository
             ->setFirstResult($offset)
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT)
+            ;
+    }
+
+    public function getTricksPaginatedByUser(int $offset, int $userId)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.user = :id')
+            ->setParameter('id', $userId)
+            ->orderBy('t.createdAt', 'DESC')
+            ->setMaxResults(self::PAGINATOR_PER_PAGE)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult(AbstractQuery::HYDRATE_OBJECT)
         ;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller\FrontController;
 
+use App\Entity\Media;
 use App\Entity\Trick;
 use App\Entity\User;
 use App\Form\TrickType;
@@ -32,6 +33,8 @@ class TrickController extends AbstractController
      */
     public function new(Request $request, MediaUploader $mediaUploader): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
+
         $trick = new Trick();
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
@@ -43,6 +46,11 @@ class TrickController extends AbstractController
             $trick->setUser($user);
 
             $medias = $form["media"]->getData();
+            $mediaUrl = $form["mediaUrl"]->getData();
+
+            if ($mediaUrl) {
+                $mediaUploader->uploadByUrl($mediaUrl, $trick);
+            }
 
             if ($medias) {
                 $mediaUploader->upload($medias, $trick);
@@ -53,7 +61,7 @@ class TrickController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash("success", $this->translator->trans('Trick has been successfully created'));
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('myTricks', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('front/trick/new.html.twig', [
@@ -63,7 +71,7 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="trick_show", methods={"GET"})
+     * @Route("/show/{slug}", name="trick_show", methods={"GET"})
      */
     public function show(Trick $trick): Response
     {
@@ -73,17 +81,32 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="trick_edit", methods={"GET","PUT"})
+     * @Route("/{slug}/edit", name="trick_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Trick $trick): Response
+    public function edit(Request $request, Trick $trick, MediaUploader $mediaUploader): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
+
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $medias = $form["media"]->getData();
+
+            if ($medias) {
+                $mediaUploader->upload($medias, $trick);
+            }
+
+            $mediaUrl = $form["mediaUrl"]->getData();
+
+            if ($mediaUrl) {
+                $mediaUploader->uploadByUrl($mediaUrl, $trick);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash("success", $this->translator->trans('Trick has been successfully updated'));
+            return $this->redirectToRoute('myTricks', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('front/trick/edit.html.twig', [
@@ -93,11 +116,13 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="trick_delete", methods={"POST"})
+     * @Route("/{slug}", name="trick_delete", methods={"POST"})
      */
     public function delete(Request $request, Trick $trick): Response
     {
-        $csrfId = sprintf("delete%s", $trick->getId());
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
+
+        $csrfId = sprintf("delete%s", $trick->getSlug());
 
         if ($this->isCsrfTokenValid($csrfId, $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -105,6 +130,7 @@ class TrickController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('trick_index', [], Response::HTTP_SEE_OTHER);
+        $this->addFlash("success", $this->translator->trans('Trick has been successfully deleted'));
+        return $this->redirectToRoute('myTricks', [], Response::HTTP_SEE_OTHER);
     }
 }

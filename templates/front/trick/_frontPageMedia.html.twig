@@ -1,5 +1,26 @@
 {% if frontPageImg is not null %}
-    <img alt="{{ frontPageImg.trick.name }}" src="{{ asset('uploads/medias/'~frontPageImg.mediaFileName)|imagine_filter('trickIndex') }}">
+    {% if 'edit' in app.request.get('pathInfo') %}
+        <div class="text-right pb-2">
+            <form method="post" action="{{ path('media_delete', {'slug': frontPageImg.slug}) }}" onsubmit="return confirm('{{ 'Are you sure'|trans }} ??');">
+                <a href="{{ path('media_edit', {'slug': frontPageImg.slug}) }}" class="btn btn-secondary text-white" role="button" role="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                </a>
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ frontPageImg.slug) }}">
+                <button class="btn" type="submit" style="background-color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                </button>
+            </form>
+        </div>
+        <img alt="{{ frontPageImg.trick.name }}" src="{{ asset('uploads/medias/'~frontPageImg.mediaFileName)|imagine_filter('trickShow') }}">
+    {% elseif 'show' in app.request.get('pathInfo') %}
+        <img alt="{{ frontPageImg.trick.name }}" src="{{ asset('uploads/medias/'~frontPageImg.mediaFileName)|imagine_filter('trickShow') }}">
+    {% else %}
+        <img alt="{{ frontPageImg.trick.name }}" src="{{ asset('uploads/medias/'~frontPageImg.mediaFileName)|imagine_filter('trickIndex') }}">
+    {% endif %}
 {% else %}
-    <img alt="Default Trick Image" src="{{ asset('build/mounthood/images/image-4-370x243.jpg')|imagine_filter('trickIndex') }}">
+    {% if ('edit' in app.request.get('pathInfo')) or ( 'trick' in app.request.get('pathInfo')) %}
+        <img alt="Default Trick Image" src="{{ asset('build/mounthood/images/image-4.jpg')|imagine_filter('trickShow') }}">
+    {% else %}
+        <img alt="Default Trick Image" src="{{ asset('build/mounthood/images/image-4-370x243.jpg')|imagine_filter('trickIndex') }}">
+    {% endif %}
 {% endif %}
