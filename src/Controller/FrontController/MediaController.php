@@ -14,6 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * @Route("/media")
+ */
 class MediaController extends AbstractController
 {
     private $translator;
