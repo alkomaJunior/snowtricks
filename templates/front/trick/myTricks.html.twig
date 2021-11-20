@@ -95,7 +95,7 @@
                                                 <div class="post_featured">
                                                     <div class="img-fluid">
                                                         <a class="hover_icon hover_icon_link" href="{{ path('trick_show', {slug: trick.slug}) }}">
-                                                            {{ render(url('front_img', {trickId: trick.id})) }}
+                                                            {{ render(url('front_img', {trickId: trick.id, pathInfo: app.request.pathInfo})) }}
                                                         </a>
                                                     </div>
                                                     <div class="post_content_overlay">

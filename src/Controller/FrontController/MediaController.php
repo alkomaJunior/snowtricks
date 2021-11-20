@@ -6,6 +6,7 @@ use App\Entity\Media;
 use App\Form\MediaType;
 use App\Repository\MediaRepository;
 use App\Repository\TrickRepository;
+use Doctrine\DBAL\Driver\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,15 +66,17 @@ class MediaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $mediaFromForm = $form["media"]->getData();
-            $mediaStatus = $request->request->get('isFrontPageMedia');
-            $actualMedia = $mediaRepository->findOneBy(['isFrontPageMedia' => true]);
+            $mediaStatus = $media->getIsFrontPageMedia();
 
-            if ($media->getIsFrontPageMedia() === true) {
-                $mediaStatus = false;
-            }
-
-            if ($mediaStatus === true) {
-                $actualMedia->setIsFrontPageMedia(false);
+            if ($mediaStatus) {
+                try {
+                    $restOfMedias = $mediaRepository->findAllMediasExceptedOne($media->getId());
+                    foreach ($restOfMedias as $restOfMedia) {
+                        $restOfMedia->setIsFrontPageMedia(false);
+                        $this->getDoctrine()->getManager()->flush();
+                    }
+                } catch (Exception | \Doctrine\DBAL\Exception $e) {
+                }
             }
 
             if ($mediaFromForm) {
