@@ -73,8 +73,8 @@ class MediaController extends AbstractController
                     $restOfMedias = $mediaRepository->findAllMediasExceptedOne($media->getId());
                     foreach ($restOfMedias as $restOfMedia) {
                         $restOfMedia->setIsFrontPageMedia(false);
-                        $this->getDoctrine()->getManager()->flush();
                     }
+                    $this->getDoctrine()->getManager()->flush();
                 } catch (Exception | \Doctrine\DBAL\Exception $e) {
                 }
             }
