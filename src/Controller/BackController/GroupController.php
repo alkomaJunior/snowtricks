@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\FrontController;
+namespace App\Controller\BackController;
 
 use App\Entity\Group;
 use App\Form\GroupType;
@@ -31,7 +31,7 @@ class GroupController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
 
-        return $this->render('front/group/index.html.twig', [
+        return $this->render('back/group/index.html.twig', [
             'groups' => $groupRepository->findAll(),
         ]);
     }
@@ -56,7 +56,7 @@ class GroupController extends AbstractController
             return $this->redirectToRoute('group_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('front/group/new.html.twig', [
+        return $this->render('back/group/new.html.twig', [
             'group' => $group,
             'form' => $form->createView(),
         ]);
@@ -79,7 +79,7 @@ class GroupController extends AbstractController
             return $this->redirectToRoute('group_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('front/group/edit.html.twig', [
+        return $this->render('back/group/edit.html.twig', [
             'group' => $group,
             'form' => $form->createView(),
         ]);

@@ -2,11 +2,15 @@
 
 namespace App\Controller\FrontController;
 
+use App\Entity\Comment;
 use App\Entity\Media;
 use App\Entity\Trick;
 use App\Entity\User;
+use App\Form\CommentType;
 use App\Form\TrickType;
+use App\Repository\CommentRepository;
 use App\Service\MediaUploader;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,12 +75,41 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/show/{slug}", name="trick_show", methods={"GET"})
+     * @Route("/show/{slug}", name="trick_show", methods={"GET", "POST"})
      */
-    public function show(Trick $trick): Response
-    {
+    public function show(
+        Trick $trick,
+        Request $request,
+        EntityManagerInterface $entityManager,
+        CommentRepository $commentRepository
+    ): Response {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $offset = $request->request->get('offset', 0);
+        $commentsPaginated = $commentRepository->getCommentsPaginatedByTrick($offset, $trick->getId());
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setSlug("comment#".$trick->getSlug().uniqid());
+            $comment->setUser($user);
+            $comment->setTrick($trick);
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('trick_show', ['slug' => $trick->getSlug()], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('front/trick/show.html.twig', [
             'trick' => $trick,
+            'comment' => $comment,
+            'form' => $form->createView(),
+            'commentsPaginated'    => $commentsPaginated,
+            'offset'             => $offset,
+            'comments'           => $commentRepository->findBy(['trick' => $trick->getId()]),
         ]);
     }
 

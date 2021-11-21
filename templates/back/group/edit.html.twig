@@ -14,12 +14,12 @@
                 <!-- Trick description -->
                 <article class="post_item post_item_excerpt post_featured_left odd post">
                     <div class="post_content clearfix">
-                        <h3 class="post_title text-center">
-                            <a>{{ 'New group'|trans }}</a>
+                        <h3 class="post_title">
+                            <a>{{ group.title }}</a>
                         </h3>
 
                         <!-- Edit Trick form -->
-                        {{ include('front/group/_form.html.twig') }}
+                        {{ include('back/group/_form.html.twig', {'Action': 'Edit'|trans}) }}
                         <!-- /Edit Trick form -->
 
                     </div>

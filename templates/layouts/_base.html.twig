@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="{{ app.request.locale }}" class="scheme_original">
+<html lang="{{ app.request.locale }}" class="scheme_original"
+    {% if app.request.pathInfo != '/' %}
+      style="zoom: 90%;";
+    {% else %}
+        style="zoom: 100%";
+    {% endif %}
+>
     <head>
         <title>{% block title %}SnowTricks{% endblock %}</title>
         <meta charset="UTF-8">

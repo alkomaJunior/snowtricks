@@ -58,7 +58,7 @@ class TrickRepository extends ServiceEntityRepository
     public function getTricksPaginated(int $offset)
     {
         return $this->createQueryBuilder('t')
-            ->orderBy('t.createdAt', 'DESC')
+            //->orderBy('t.createdAt', 'DESC')
             ->setMaxResults(self::PAGINATOR_PER_PAGE)
             ->setFirstResult($offset)
             ->getQuery()
@@ -71,7 +71,7 @@ class TrickRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->andWhere('t.user = :id')
             ->setParameter('id', $userId)
-            ->orderBy('t.createdAt', 'DESC')
+            //->orderBy('t.createdAt', 'DESC')
             ->setMaxResults(self::PAGINATOR_PER_PAGE)
             ->setFirstResult($offset)
             ->getQuery()
