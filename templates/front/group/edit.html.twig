@@ -1,0 +1,42 @@
+{% extends 'layouts/_base.html.twig' %}
+
+{% block title %}{{ 'Group'|trans }}{% endblock %}
+
+{% block body %}
+
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'groupActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'groupActiveClass': 'current-menu-item'}) }}
+    <!-- Page content wrap -->
+    <div class="page_content_wrap page_paddings_yes">
+        <div class="content_wrap">
+            <!-- Content -->
+            <div class="content">
+                <!-- Trick description -->
+                <article class="post_item post_item_excerpt post_featured_left odd post">
+                    <div class="post_content clearfix">
+                        <h3 class="post_title">
+                            <a>{{ group.title }}</a>
+                        </h3>
+
+                        <!-- Edit Trick form -->
+                        {{ include('front/group/_form.html.twig', {'Action': 'Edit'|trans}) }}
+                        <!-- /Edit Trick form -->
+
+                    </div>
+                </article>
+                <!-- /Trick description -->
+            </div>
+            <!-- /Content -->
+        </div>
+    </div>
+    <!-- /Page content wrap -->
+
+    <!-- /Body wrap -->
+    <div id="page-wrap"></div>
+
+{% endblock %}
+
+
+
+
+

@@ -3,8 +3,10 @@
 namespace App\Controller\FrontController;
 
 use App\Entity\User;
+use App\Form\UserProfileType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Service\MediaUploader;
 use DateTime;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -73,7 +75,7 @@ class UserController extends AbstractController
             $user->setActivationToken(md5(uniqid()));
 
             // Setting slug
-            $user->setSlug($user->getPseudo());
+            $user->setSlug(strtolower(preg_replace('/\s+/', '', $user->getPseudo())));
 
             // Activation mail
             $email = (new TemplatedEmail())
@@ -181,27 +183,40 @@ class UserController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/{slug}/profile", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
+
         return $this->render('front/user/show.html.twig', [
             'user' => $user,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/{slug}/profile/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, MediaUploader $mediaUploader): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
+
+        $form = $this->createForm(UserProfileType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $media = $form["media"]->getData();
+
+            if ($media) {
+                $mediaUploader->uploadAvatar($media, $user);
+            }
+
+            $user->setSlug(strtolower(preg_replace('/\s+/', '', $user->getPseudo())));
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash("success", $this->translator->trans("Your profile was successfully edited"));
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('front/user/edit.html.twig', [

@@ -1,0 +1,7 @@
+App\Entity\User:
+  user{1..10}:
+    email: user<current()>\@domain.com
+    pseudo: user<current()>
+    password: "0000"
+    isActive: true
+    slug: user<current()>

@@ -1,0 +1,8 @@
+App\Entity\User:
+  user_user:
+    email: "john\\@some.where"
+    pseudo: "john"
+    roles: "['ROLE_USER']"
+    password: "\\$argon2i\\$v\\=19\\$m\\=16\\,t\\=2\\,p\\=1\\$dzdLa2pvMjhGVGcwM081Yw$lNxz8fPeNKDxahLlQf7QqQ"
+    isActive: true
+    slug: "John"

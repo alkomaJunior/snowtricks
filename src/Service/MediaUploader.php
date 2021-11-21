@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Media;
 use App\Entity\Trick;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -121,5 +122,23 @@ class MediaUploader
         $mediaFile->setIsFrontPageMedia(false);
 
         $trick->addMedium($mediaFile);
+    }
+
+    public function uploadAvatar($media, User $user)
+    {
+        $originalFileName = pathinfo($media, PATHINFO_FILENAME);
+        $safeFileName = $this->slugger->slug($originalFileName);
+        $fileName = $safeFileName.'-'.uniqid().'.'.$media->guessExtension();
+
+        try {
+            $media->move($this->getTargetDir(), $fileName);
+            if (!empty($user->getAvatar())) {
+                unlink($this->getTargetDir().'/'.$user->getAvatar());
+            }
+        } catch (FileException $e) {
+            // ... handle exception if something happens during file upload
+        }
+
+        $user->setAvatar($fileName);
     }
 }
