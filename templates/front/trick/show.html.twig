@@ -1,42 +1,151 @@
-<!DOCTYPE html>
-
-<title>Trick</title>
+{% extends 'layouts/_base.html.twig' %}
 
 {% block body %}
-    <h1>Trick</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ trick.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ trick.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ trick.description }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ trick.slug }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ trick.createdAt ? trick.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ trick.updatedAt ? trick.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <style id="my-style">
+        #content-desktop {display: block;}
+        #content-mobile {display: none;}
+        #content-mobile-reverse {display: none;}
+        @media all and (max-width: 768px) {
 
-    <a href="{{ path('trick_index') }}">back to list</a>
+            #content-desktop {display: none;}
+            #content-mobile {display: block;}
+            #content-mobile-reverse {display: none;}
 
-    <a href="{{ path('trick_edit', {'id': trick.id}) }}">edit</a>
+        }
+    </style>
 
-    {{ include('trick/_delete_form.html.twig') }}
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'homeActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'homeActiveClass': 'current-menu-item'}) }}
+    <!-- Page content wrap -->
+    <div class="page_content_wrap page_paddings_yes">
+        <div class="content_wrap">
+            <!-- Content -->
+            <div class="content">
+                <!-- Trick description -->
+                <article class="post_item post_item_excerpt post_featured_left odd post">
+                    <div class="post_content clearfix">
+                        <h3 class="post_title">
+                            <a>{{ trick.name }}</a>
+                        </h3>
+
+                        <div class="post_featured">
+                            <div class="post_thumb" data-image="" data-title="Serving Cookies at Alpine Nationals">
+                                <a class="img-fluid">
+                                    {{ render(url('front_img', {trickId: trick.id, pathInfo: app.request.pathInfo})) }}
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <article class="post_item post_item_single page">
+                            <section class="post_content">
+                                <div class="layout_masonry_4 template_masonry" id="content-desktop">
+                                    {{ include('front/trick/_tricksMedia.html.twig') }}
+                                </div>
+                                <div class="isotope_wrap text-center m-5" id="content-mobile">
+                                    <button type="button" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium sc_button_iconed icon-eye-outline"
+                                            onclick="showMedia()">Medias</button>
+                                </div>
+                                <div class="isotope_wrap text-center m-5" id="content-mobile-reverse">
+                                    <button type="button" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium sc_button_iconed icon-eye-light"
+                                            onclick="hideMedia()">Hide Medias</button>
+                                </div>
+                            </section>
+                        </article>
+
+
+                        <div class="post_descr">
+                            <p>
+                                {{ trick.description }}
+                            </p>
+                        </div>
+
+                        <div class="post_info text-center">
+                            <span class="post_info_item post_info_posted badge badge-primary p-3 mb-1">
+                                <a class="text-white">{{ 'Created at'|trans~" "~trick.createdAt|format_datetime('medium', 'short') }}</a>
+                            </span>
+                            <span class="post_info_posted badge badge-primary p-3 mb-1">
+                                <a class="text-white">{{ 'Updated at'|trans~" "~trick.updatedAt|format_datetime('medium', 'short') }}</a>
+                            </span>
+                            <span class="post_info_posted badge badge-primary p-3 mb-1">
+                                <a class="text-white">{{ 'Created by'|trans~" "~trick.user.pseudo }}</a>
+                            </span>
+                        </div>
+
+                        <div class="post_line_over_author"></div>
+                        <!-- Comments form -->
+                        <section class="comments_wrap mb-4">
+                            <div class="comments_form_wrap">
+                                <div class="comments_form">
+                                    <div id="respond" class="comment-respond">
+                                        <form action="#" method="post" id="commentform" class="comment-form sc_input_hover_default">
+                                            <div class="comments_field comments_message">
+                                                <textarea id="comment" name="comment" placeholder="Comment" aria-required="true"></textarea>
+                                            </div>
+                                            <p class="form-submit text-center">
+                                                <input name="submit" type="submit" id="send_comment" class="submit" value="Submit">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="post_line_over_author"></div>
+                        <!-- /Comments form -->
+
+                        <article class="post_item post_item_single post">
+                            <div class="post_line_over_author"></div>
+                            <section class="post_author author">
+                                <div class="post_author_avatar">
+                                    <a href="#">
+                                        <img alt="" src="{{ asset('build/mounthood/images/team-2-228x228.jpg') }}">
+                                    </a>
+                                </div>
+                                <div class="post_author_content">
+                                    <h6 class="post_author_title">About
+                                        <span>
+                                            <a href="#" class="fn">Jane Doe</a>
+                                        </span>
+                                    </h6>
+                                    <div class="post_author_info">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="post_line_under_author"></div>
+                        </article>
+
+                    </div>
+                </article>
+                <!-- /Trick description -->
+            </div>
+            <!-- /Content -->
+        </div>
+    </div>
+    <!-- /Page content wrap -->
+
+    <!-- /Body wrap -->
+    <div id="page-wrap"></div>
+
+    {{ include('layouts/partials/_bootstrapJs.html.twig') }}
+
+    <script>
+        function showMedia(){
+            document.getElementById('content-desktop').style.display = "block";
+            document.getElementById('content-mobile').style.display = "none";
+            document.getElementById('content-mobile-reverse').style.display = "block";
+        }
+        function hideMedia(){
+            document.getElementById('content-desktop').style.display = "none";
+            document.getElementById('content-mobile').style.display = "block";
+            document.getElementById('content-mobile-reverse').style.display = "none";
+        }
+    </script>
+
 {% endblock %}
+
+
+
+
+

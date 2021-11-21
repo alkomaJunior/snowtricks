@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-<html lang="{{ app.request.locale }}">
+<html lang="{{ app.request.locale }}" class="scheme_original">
     <head>
-        <title>{% block title %}Rent &#8211; Mounthood &#8211; Snowboard School{% endblock %}</title>
+        <title>{% block title %}SnowTricks{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="format-detection" content="telephone=no">
@@ -94,6 +94,12 @@
         {{ encore_entry_script_tags('app') }}
 
         <script type="text/javascript" src="{{ asset('build/mounthood/js/revslider-homepage-1.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/jquery/ui/widget.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/jquery/ui/tabs.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/jquery/ui/mouse.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/core.reviews.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('build/mounthood/js/jquery/ui/draggable.min.js') }}"></script>
 
     {% endblock %}
 

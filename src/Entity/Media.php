@@ -10,6 +10,7 @@ use App\Entity\Traits\Slug;
 /**
  * @ORM\Entity(repositoryClass=MediaRepository::class)
  * @ORM\Table(name="`medias`")
+ * @ORM\HasLifecycleCallbacks
  */
 class Media
 {

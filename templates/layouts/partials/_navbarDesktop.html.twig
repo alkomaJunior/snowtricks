@@ -22,10 +22,17 @@
                                 <a href="{{ path('home') }}"><span> {{ 'Home'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Home -->
+                            <!-- Menu: My Tricks -->
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li class="menu-item {{ myTricksActiveClass ?? "" }}">
+                                    <a href="{{ path('myTricks') }}"><span>Tricks</span></a>
+                                </li>
+                            {% endif %}
+                            <!-- /Menu: My Tricks -->
                             <!-- Menu: Sign in tricks when user is logged in -->
-                            <li class="menu-item {{ signInActiveClass ?? "" }} {{ tricksActiveClass ?? "" }}">
+                            <li class="menu-item {{ signInActiveClass ?? "" }} {{ profileActiveClass ?? "" }}">
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <a href="#"><span> {{ 'Tricks'|trans }}</span></a>
+                                    <a href="#"><span> {{ 'Profile'|trans }}</span></a>
                                 {% else %}
                                     <a href="{{ path('app_login') }}"><span> {{ 'Sign in'|trans }}</span></a>
                                 {% endif %}

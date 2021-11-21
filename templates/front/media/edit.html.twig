@@ -1,0 +1,76 @@
+{% extends 'layouts/_base.html.twig' %}
+
+{% block body %}
+
+    {{ include('layouts/partials/_navbarDesktop.html.twig', {'myTricksActiveClass': 'current-menu-item'}) }}
+    {{ include('layouts/partials/_navbarMobile.html.twig', {'myTricksActiveClass': 'current-menu-item'}) }}
+    <!-- Page content wrap -->
+    <div class="page_content_wrap page_paddings_yes">
+        <div class="content_wrap">
+            <!-- Content -->
+            <div class="content">
+                <!-- Trick description -->
+                <article class="post_item post_item_excerpt post_featured_left odd post">
+                    <div class="post_content clearfix">
+                        <h3 class="post_title">
+                            <a>{{ trick.name~' / '~media.mediaFileName }}</a>
+                        </h3>
+
+                        <div class="mb-3 text-center">
+                            {% if (media.mediaType == 'Image') and (media.mediaFileName is not null) %}
+                                <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~media.mediaFileName)|imagine_filter('trickShow') }}">
+                                    <img alt="{{ trick.name }}" src="{{ asset('uploads/medias/'~media.mediaFileName)|imagine_filter('trickShow') }}">
+                                </a>
+                            {% elseif (media.mediaType == 'Image') and (media.mediaUrl is not null)  %}
+                                <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~media.mediaFileName)|imagine_filter('trickShow') }}">
+                                    <img alt="{{ trick.name }}" src="{{ media.mediaUrl|imagine_filter('trickIndex') }}">
+                                </a>
+                            {% elseif (media.mediaType == 'Video') and (media.mediaFileName is not null) %}
+                                <video width="2300" height="1513" controls>
+                                    <source src="{{ asset('uploads/medias/'~media.mediaFileName) }}" type="video/mp4">
+                                </video>
+                            {% else %}
+                                <iframe width="2300" height="1513"
+                                        src="{{ media.mediaUrl }}"
+                                        title="{{ media.slug }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            {% endif %}
+                        </div>
+
+                        <!-- Edit Trick form -->
+                        {{ include('front/media/_form.html.twig', {'Action': 'Edit'|trans, 'textRight': 'text_align_right'}) }}
+                        <!-- /Edit Trick form -->
+
+                    </div>
+                </article>
+                <!-- /Trick description -->
+            </div>
+            <!-- /Content -->
+        </div>
+    </div>
+    <!-- /Page content wrap -->
+
+    <!-- /Body wrap -->
+    <div id="page-wrap"></div>
+
+    <script>
+        function showMedia(){
+            document.getElementById('content-desktop').style.display = "block";
+            document.getElementById('content-mobile').style.display = "none";
+            document.getElementById('content-mobile-reverse').style.display = "block";
+        }
+        function hideMedia(){
+            document.getElementById('content-desktop').style.display = "none";
+            document.getElementById('content-mobile').style.display = "block";
+            document.getElementById('content-mobile-reverse').style.display = "none";
+        }
+    </script>
+
+    {{ include('layouts/partials/_bootstrapJs.html.twig') }}
+
+{% endblock %}
+
+
+
+
+

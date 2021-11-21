@@ -47,4 +47,18 @@ class MediaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param int $mediaId
+     * @return Media[]
+     */
+    public function findAllMediasExceptedOne(int $mediaId): array
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.id != :mediaId')
+            ->setParameter('mediaId', $mediaId)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

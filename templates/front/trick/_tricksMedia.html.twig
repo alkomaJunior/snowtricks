@@ -1,0 +1,47 @@
+<div class="row" data-columns="4">
+    {% for img in trick.media %}
+        <!-- Trick images -->
+        <div class="column-1_4" {{ img.isFrontPageMedia ? 'style="display: none"' : '' }}>
+            <div class="post_item post_item_masonry post_item_masonry_4	odd">
+                <div class="post_featured">
+                    <div class="post_thumb">
+                        {% if (('edit' in app.request.pathInfo) or ('show' in app.request.pathInfo)) %}
+                            {% if (img.mediaType == 'Image') and (img.mediaFileName is not null) %}
+                                <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~img.mediaFileName)|imagine_filter('trickShow') }}">
+                                    <img alt="{{ trick.name }}" src="{{ asset('uploads/medias/'~img.mediaFileName)|imagine_filter('trickIndex') }}">
+                                </a>
+                            {% elseif (img.mediaType == 'Image') and (img.mediaUrl is not null)  %}
+                                <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~img.mediaFileName)|imagine_filter('trickShow') }}">
+                                    <img alt="{{ trick.name }}" src="{{ img.mediaUrl|imagine_filter('trickIndex') }}">
+                                </a>
+                            {% elseif (img.mediaType == 'Video') and (img.mediaFileName is not null) %}
+                                <video height="179" controls>
+                                    <source src="{{ asset('uploads/medias/'~img.mediaFileName) }}" type="video/mp4">
+                                </video>
+                            {% else %}
+                                <iframe height="179"
+                                        src="{{ img.mediaUrl }}"
+                                        title="{{ img.slug }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            {% endif %}
+                            {% if 'edit' in app.request.requestUri %}
+                                <div class="text-right pt-2 pl-5">
+                                    <a href="{{ path('media_edit', {'slug': img.slug}) }}" class="btn btn-secondary text-white" role="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                    </a>
+                                    <a href="#dangerModalMedia{{ img.id }}" class="btn btn-danger text-white" data-toggle="modal" role="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                    </a>
+                                    {{ include('front/media/_delete_form.html.twig') }}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Trick images -->
+    {% endfor %}
+</div>
+
+{{ include('layouts/partials/_bootstrapJs.html.twig') }}

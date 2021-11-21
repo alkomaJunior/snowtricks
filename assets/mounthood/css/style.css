@@ -430,6 +430,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="email"],
 [class*="sc_input_hover_"] input[type="tel"],
 [class*="sc_input_hover_"] input[type="password"],
+[class*="sc_input_hover_"] input[type="file"],
 [class*="sc_input_hover_"] input[type="search"],
 [class*="sc_input_hover_"] select,
 [class*="sc_input_hover_"] textarea {
@@ -445,6 +446,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="email"]:focus,
 [class*="sc_input_hover_"] input[type="tel"]:focus,
 [class*="sc_input_hover_"] input[type="password"]:focus,
+[class*="sc_input_hover_"] input[type="file"]:focus,
 [class*="sc_input_hover_"] input[type="search"]:focus,
 [class*="sc_input_hover_"] select:focus,
 [class*="sc_input_hover_"] textarea:focus {
@@ -455,6 +457,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="email"] + label,
 [class*="sc_input_hover_"] input[type="tel"] + label,
 [class*="sc_input_hover_"] input[type="password"] + label,
+[class*="sc_input_hover_"] input[type="file"] + label,
 [class*="sc_input_hover_"] input[type="search"] + label,
 [class*="sc_input_hover_"] select + label,
 [class*="sc_input_hover_"] textarea + label {
@@ -484,6 +487,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="number"] + label.required:after,
 [class*="sc_input_hover_"] input[type="email"] + label.required:after,
 [class*="sc_input_hover_"] input[type="password"] + label.required:after,
+[class*="sc_input_hover_"] input[type="file"] + label.required:after,
 [class*="sc_input_hover_"] input[type="search"] + label.required:after,
 [class*="sc_input_hover_"] select + label.required:after,
 [class*="sc_input_hover_"] textarea + label.required:after {
@@ -493,6 +497,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="number"] + label > .sc_form_label_content,
 [class*="sc_input_hover_"] input[type="email"] + label > .sc_form_label_content,
 [class*="sc_input_hover_"] input[type="password"] + label > .sc_form_label_content,
+[class*="sc_input_hover_"] input[type="file"] + label > .sc_form_label_content,
 [class*="sc_input_hover_"] input[type="search"] + label > .sc_form_label_content,
 [class*="sc_input_hover_"] select + label > .sc_form_label_content,
 [class*="sc_input_hover_"] textarea + label > .sc_form_label_content {
@@ -504,6 +509,7 @@ fieldset legend {
 [class*="sc_input_hover_"] input[type="number"] + label.required > .sc_form_label_content:after,
 [class*="sc_input_hover_"] input[type="email"] + label.required > .sc_form_label_content:after,
 [class*="sc_input_hover_"] input[type="password"] + label.required > .sc_form_label_content:after,
+[class*="sc_input_hover_"] input[type="file"] + label.required > .sc_form_label_content:after,
 [class*="sc_input_hover_"] input[type="search"] + label.required > .sc_form_label_content:after,
 [class*="sc_input_hover_"] textarea + label.required > .sc_form_label_content:after {
 	content: '*';
@@ -521,6 +527,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"],
 .sc_input_hover_accent input[type="email"],
 .sc_input_hover_accent input[type="password"],
+.sc_input_hover_accent input[type="file"],
 .sc_input_hover_accent input[type="search"],
 .sc_input_hover_accent select,
 .sc_input_hover_accent textarea {
@@ -534,6 +541,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"] + label,
 .sc_input_hover_accent input[type="email"] + label,
 .sc_input_hover_accent input[type="password"] + label,
+.sc_input_hover_accent input[type="file"] + label,
 .sc_input_hover_accent input[type="search"] + label,
 .sc_input_hover_accent select + label,
 .sc_input_hover_accent textarea + label {
@@ -543,6 +551,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"] + label > .sc_form_label_content,
 .sc_input_hover_accent input[type="email"] + label > .sc_form_label_content,
 .sc_input_hover_accent input[type="password"] + label > .sc_form_label_content,
+.sc_input_hover_accent input[type="file"] + label > .sc_form_label_content,
 .sc_input_hover_accent input[type="search"] + label > .sc_form_label_content,
 .sc_input_hover_accent select + label > .sc_form_label_content,
 .sc_input_hover_accent textarea + label > .sc_form_label_content {
@@ -552,6 +561,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"] + label:before,
 .sc_input_hover_accent input[type="email"] + label:before,
 .sc_input_hover_accent input[type="password"] + label:before,
+.sc_input_hover_accent input[type="file"] + label:before,
 .sc_input_hover_accent input[type="search"] + label:before,
 .sc_input_hover_accent select + label:after,
 .sc_input_hover_accent textarea + label:after {
@@ -572,6 +582,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"]:focus + label,
 .sc_input_hover_accent input[type="email"]:focus + label,
 .sc_input_hover_accent input[type="password"]:focus + label,
+.sc_input_hover_accent input[type="file"]:focus + label,
 .sc_input_hover_accent input[type="search"]:focus + label,
 .sc_input_hover_accent select:focus + label,
 .sc_input_hover_accent textarea:focus + label {
@@ -581,6 +592,7 @@ fieldset legend {
 .sc_input_hover_accent input[type="number"]:focus + label:before,
 .sc_input_hover_accent input[type="email"]:focus + label:before,
 .sc_input_hover_accent input[type="password"]:focus + label:before,
+.sc_input_hover_accent input[type="file"]:focus + label:before,
 .sc_input_hover_accent input[type="search"]:focus + label:before,
 .sc_input_hover_accent select:focus + label:after,
 .sc_input_hover_accent textarea:focus + label:after {
@@ -612,6 +624,7 @@ fieldset legend {
 .sc_input_hover_path input[type="number"],
 .sc_input_hover_path input[type="email"],
 .sc_input_hover_path input[type="password"],
+.sc_input_hover_path input[type="file"],
 .sc_input_hover_path input[type="search"],
 .sc_input_hover_path textarea {
 	background: transparent !important;
@@ -620,6 +633,7 @@ fieldset legend {
 .sc_input_hover_path input[type="number"] + label,
 .sc_input_hover_path input[type="email"] + label,
 .sc_input_hover_path input[type="password"] + label,
+.sc_input_hover_path input[type="file"] + label,
 .sc_input_hover_path input[type="search"] + label,
 .sc_input_hover_path textarea + label {
 	height: 100%;
@@ -629,6 +643,7 @@ fieldset legend {
 .sc_input_hover_path input[type="number"] + label:before,
 .sc_input_hover_path input[type="email"] + label:before,
 .sc_input_hover_path input[type="password"] + label:before,
+.sc_input_hover_path input[type="file"] + label:before,
 .sc_input_hover_path input[type="search"] + label:before,
 .sc_input_hover_path textarea + label:before {
 	margin-left: 0;
@@ -638,6 +653,7 @@ fieldset legend {
 .sc_input_hover_path input[type="number"] + label > .sc_form_label_content,
 .sc_input_hover_path input[type="email"] + label > .sc_form_label_content,
 .sc_input_hover_path input[type="password"] + label > .sc_form_label_content,
+.sc_input_hover_path input[type="file"] + label > .sc_form_label_content,
 .sc_input_hover_path input[type="search"] + label > .sc_form_label_content,
 .sc_input_hover_path textarea + label > .sc_form_label_content {
 	padding: 1em;
@@ -652,6 +668,7 @@ fieldset legend {
 .sc_input_hover_path input[type="number"] + label > .sc_form_graphic,
 .sc_input_hover_path input[type="email"] + label > .sc_form_graphic,
 .sc_input_hover_path input[type="password"] + label > .sc_form_graphic,
+.sc_input_hover_path input[type="file"] + label > .sc_form_graphic,
 .sc_input_hover_path input[type="search"] + label > .sc_form_graphic,
 .sc_input_hover_path textarea + label > .sc_form_graphic {
 	position: absolute;
@@ -674,12 +691,14 @@ fieldset legend {
 .sc_input_hover_path input[type="number"]:focus + label,
 .sc_input_hover_path input[type="email"]:focus + label,
 .sc_input_hover_path input[type="password"]:focus + label,
+.sc_input_hover_path input[type="file"]:focus + label,
 .sc_input_hover_path input[type="search"]:focus + label,
 .sc_input_hover_path textarea:focus + label,
 .sc_input_hover_path input[type="text"].filled + label,
 .sc_input_hover_path input[type="number"].filled + label,
 .sc_input_hover_path input[type="email"].filled + label,
 .sc_input_hover_path input[type="password"].filled + label,
+.sc_input_hover_path input[type="file"].filled + label,
 .sc_input_hover_path input[type="search"].filled + label,
 .sc_input_hover_path textarea.filled + label {
 	cursor: default;
@@ -689,12 +708,14 @@ fieldset legend {
 .sc_input_hover_path input[type="number"]:focus + label > .sc_form_graphic,
 .sc_input_hover_path input[type="email"]:focus + label > .sc_form_graphic,
 .sc_input_hover_path input[type="password"]:focus + label > .sc_form_graphic,
+.sc_input_hover_path input[type="file"]:focus + label > .sc_form_graphic,
 .sc_input_hover_path input[type="search"]:focus + label > .sc_form_graphic,
 .sc_input_hover_path textarea:focus + label > .sc_form_graphic,
 .sc_input_hover_path input[type="text"].filled + label > .sc_form_graphic,
 .sc_input_hover_path input[type="number"].filled + label > .sc_form_graphic,
 .sc_input_hover_path input[type="email"].filled + label > .sc_form_graphic,
 .sc_input_hover_path input[type="password"].filled + label > .sc_form_graphic,
+.sc_input_hover_path input[type="file"].filled + label > .sc_form_graphic,
 .sc_input_hover_path input[type="search"].filled + label > .sc_form_graphic,
 .sc_input_hover_path textarea.filled + label > .sc_form_graphic {
 	stroke-dashoffset: 0;
@@ -703,12 +724,14 @@ fieldset legend {
 .sc_input_hover_path input[type="number"]:focus + label > .sc_form_label_content,
 .sc_input_hover_path input[type="email"]:focus + label > .sc_form_label_content,
 .sc_input_hover_path input[type="password"]:focus + label > .sc_form_label_content,
+.sc_input_hover_path input[type="file"]:focus + label > .sc_form_label_content,
 .sc_input_hover_path input[type="search"]:focus + label > .sc_form_label_content,
 .sc_input_hover_path textarea:focus + label > .sc_form_label_content,
 .sc_input_hover_path input[type="text"].filled + label > .sc_form_label_content,
 .sc_input_hover_path input[type="number"].filled + label > .sc_form_label_content,
 .sc_input_hover_path input[type="email"].filled + label > .sc_form_label_content,
 .sc_input_hover_path input[type="password"].filled + label > .sc_form_label_content,
+.sc_input_hover_path input[type="file"].filled + label > .sc_form_label_content,
 .sc_input_hover_path input[type="search"].filled + label > .sc_form_label_content,
 .sc_input_hover_path textarea.filled + label > .sc_form_label_content {
 	padding: 0.3em 1.25em;
@@ -731,6 +754,7 @@ fieldset legend {
 .sc_input_hover_jump input[type="number"],
 .sc_input_hover_jump input[type="email"],
 .sc_input_hover_jump input[type="password"],
+.sc_input_hover_jump input[type="file"],
 .sc_input_hover_jump input[type="search"],
 .sc_input_hover_jump textarea {
 	border: 2px solid #ddd;
@@ -739,6 +763,7 @@ fieldset legend {
 .sc_input_hover_jump input[type="number"] + label,
 .sc_input_hover_jump input[type="email"] + label,
 .sc_input_hover_jump input[type="password"] + label,
+.sc_input_hover_jump input[type="file"] + label,
 .sc_input_hover_jump input[type="search"] + label,
 .sc_input_hover_jump textarea + label {
 	overflow:hidden;
@@ -750,6 +775,7 @@ fieldset legend {
 .sc_input_hover_jump input[type="number"] + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="email"] + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="password"] + label > .sc_form_label_content,
+.sc_input_hover_jump input[type="file"] + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="search"] + label > .sc_form_label_content,
 .sc_input_hover_jump textarea + label > .sc_form_label_content {
 	padding: 0 1em;
@@ -766,12 +792,14 @@ fieldset legend {
 .sc_input_hover_jump input[type="number"]:focus + label,
 .sc_input_hover_jump input[type="email"]:focus + label,
 .sc_input_hover_jump input[type="password"]:focus + label,
+.sc_input_hover_jump input[type="file"]:focus + label,
 .sc_input_hover_jump input[type="search"]:focus + label,
 .sc_input_hover_jump textarea:focus + label,
 .sc_input_hover_jump input[type="text"].filled + label,
 .sc_input_hover_jump input[type="number"].filled + label,
 .sc_input_hover_jump input[type="email"].filled + label,
 .sc_input_hover_jump input[type="password"].filled + label,
+.sc_input_hover_jump input[type="file"].filled + label,
 .sc_input_hover_jump input[type="search"].filled + label,
 .sc_input_hover_jump textarea.filled + label {
 	-webkit-animation: anim-jump-1 0.25s forwards;
@@ -782,12 +810,14 @@ fieldset legend {
 .sc_input_hover_jump input[type="number"]:focus + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="email"]:focus + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="password"]:focus + label > .sc_form_label_content,
+.sc_input_hover_jump input[type="file"]:focus + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="search"]:focus + label > .sc_form_label_content,
 .sc_input_hover_jump textarea:focus + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="text"].filled + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="number"].filled + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="email"].filled + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="password"].filled + label > .sc_form_label_content,
+.sc_input_hover_jump input[type="file"].filled + label > .sc_form_label_content,
 .sc_input_hover_jump input[type="search"].filled + label > .sc_form_label_content,
 .sc_input_hover_jump textarea.filled + label > .sc_form_label_content {
 	-webkit-animation: anim-jump-2 0.25s forwards ease-in;
@@ -859,6 +889,7 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"],
 .sc_input_hover_underline input[type="email"],
 .sc_input_hover_underline input[type="password"],
+.sc_input_hover_underline input[type="file"],
 .sc_input_hover_underline input[type="search"],
 .sc_input_hover_underline textarea {
 	background-color: transparent !important;
@@ -868,6 +899,7 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"] + label,
 .sc_input_hover_underline input[type="email"] + label,
 .sc_input_hover_underline input[type="password"] + label,
+.sc_input_hover_underline input[type="file"] + label,
 .sc_input_hover_underline input[type="search"] + label,
 .sc_input_hover_underline textarea + label {
 	padding: 0.5em 0;
@@ -877,6 +909,7 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"] + label:before,
 .sc_input_hover_underline input[type="email"] + label:before,
 .sc_input_hover_underline input[type="password"] + label:before,
+.sc_input_hover_underline input[type="file"] + label:before,
 .sc_input_hover_underline input[type="search"] + label:before,
 .sc_input_hover_underline textarea + label:before {
 	content: ' ';
@@ -898,6 +931,7 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"] + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="email"] + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="password"] + label > .sc_form_label_content,
+.sc_input_hover_underline input[type="file"] + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="search"] + label > .sc_form_label_content,
 .sc_input_hover_underline textarea + label > .sc_form_label_content {
 	padding: 0;
@@ -916,12 +950,14 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"]:focus + label:before,
 .sc_input_hover_underline input[type="email"]:focus + label:before,
 .sc_input_hover_underline input[type="password"]:focus + label:before,
+.sc_input_hover_underline input[type="file"]:focus + label:before,
 .sc_input_hover_underline input[type="search"]:focus + label:before,
 .sc_input_hover_underline textarea:focus + label:before,
 .sc_input_hover_underline input[type="text"].filled + label:before,
 .sc_input_hover_underline input[type="number"].filled + label:before,
 .sc_input_hover_underline input[type="email"].filled + label:before,
 .sc_input_hover_underline input[type="password"].filled + label:before,
+.sc_input_hover_underline input[type="file"].filled + label:before,
 .sc_input_hover_underline input[type="search"].filled + label:before,
 .sc_input_hover_underline textarea.filled + label:before {
 	-webkit-transform: scale3d(1, 0.4, 1);
@@ -932,11 +968,13 @@ fieldset legend {
 .sc_input_hover_underline input[type="number"]:focus + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="email"]:focus + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="password"]:focus + label > .sc_form_label_content,
+.sc_input_hover_underline input[type="file"]:focus + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="search"]:focus + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="text"].filled + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="number"].filled + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="email"].filled + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="password"].filled + label > .sc_form_label_content,
+.sc_input_hover_underline input[type="file"].filled + label > .sc_form_label_content,
 .sc_input_hover_underline input[type="search"].filled + label > .sc_form_label_content {
 	-webkit-transform: translate3d(0, 2em, 0) scale3d(0.7, 0.7, 1);
 	    -ms-transform: translate3d(0, 2em, 0) scale3d(0.7, 0.7, 1);
@@ -955,6 +993,7 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"],
 .sc_input_hover_iconed input[type="email"],
 .sc_input_hover_iconed input[type="password"],
+.sc_input_hover_iconed input[type="file"],
 .sc_input_hover_iconed input[type="search"],
 .sc_input_hover_iconed textarea {
 	padding: 0.8em 0.8em 0.8em 2.8em !important;
@@ -963,6 +1002,7 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"] + label,
 .sc_input_hover_iconed input[type="email"] + label,
 .sc_input_hover_iconed input[type="password"] + label,
+.sc_input_hover_iconed input[type="file"] + label,
 .sc_input_hover_iconed input[type="search"] + label,
 .sc_input_hover_iconed textarea + label {
 	overflow:hidden;
@@ -973,6 +1013,7 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"] + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="email"] + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="password"] + label > .sc_form_label_content,
+.sc_input_hover_iconed input[type="file"] + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="search"] + label > .sc_form_label_content,
 .sc_input_hover_iconed textarea + label > .sc_form_label_content {
 	display: inline-block !important;
@@ -988,6 +1029,7 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"] + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="email"] + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="password"] + label > .sc_form_label_icon,
+.sc_input_hover_iconed input[type="file"] + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="search"] + label > .sc_form_label_icon,
 .sc_input_hover_iconed textarea + label > .sc_form_label_icon {
 	display: inline-block;
@@ -1008,6 +1050,7 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"] + label > .sc_form_label_icon:before,
 .sc_input_hover_iconed input[type="email"] + label > .sc_form_label_icon:before,
 .sc_input_hover_iconed input[type="password"] + label > .sc_form_label_icon:before,
+.sc_input_hover_iconed input[type="file"] + label > .sc_form_label_icon:before,
 .sc_input_hover_iconed input[type="search"] + label > .sc_form_label_icon:before,
 .sc_input_hover_iconed textarea + label > .sc_form_label_icon:before {
 	position:static !important;
@@ -1024,12 +1067,14 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="email"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="password"]:focus + label > .sc_form_label_content,
+.sc_input_hover_iconed input[type="file"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="search"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed textarea:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="text"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="number"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="email"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="password"].filled + label > .sc_form_label_content,
+.sc_input_hover_iconed input[type="file"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="search"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed textarea.filled + label > .sc_form_label_content {
 	opacity: 0;
@@ -1043,12 +1088,14 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="email"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="password"]:focus + label > .sc_form_label_content,
+.sc_input_hover_iconed input[type="file"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="search"]:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed textarea:focus + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="text"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="number"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="email"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="password"].filled + label > .sc_form_label_content,
+.sc_input_hover_iconed input[type="file"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed input[type="search"].filled + label > .sc_form_label_content,
 .sc_input_hover_iconed textarea.filled + label > .sc_form_label_content {
 	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
@@ -1059,12 +1106,14 @@ fieldset legend {
 .sc_input_hover_iconed input[type="number"]:focus + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="email"]:focus + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="password"]:focus + label > .sc_form_label_icon,
+.sc_input_hover_iconed input[type="file"]:focus + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="search"]:focus + label > .sc_form_label_icon,
 .sc_input_hover_iconed textarea:focus + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="text"].filled + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="number"].filled + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="email"].filled + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="password"].filled + label > .sc_form_label_icon,
+.sc_input_hover_iconed input[type="file"].filled + label > .sc_form_label_icon,
 .sc_input_hover_iconed input[type="search"].filled + label > .sc_form_label_icon,
 .sc_input_hover_iconed textarea.filled + label > .sc_form_label_icon {
 	-webkit-transform: translate3d(0, 0, 0);
