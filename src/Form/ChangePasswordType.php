@@ -37,7 +37,7 @@ class ChangePasswordType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('newPassword', RepeatedType::class, [
+            ->add('changedPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'first_options' => array(

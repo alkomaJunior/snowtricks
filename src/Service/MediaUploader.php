@@ -6,6 +6,7 @@ use App\Entity\Media;
 use App\Entity\Trick;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -124,7 +125,7 @@ class MediaUploader
         $trick->addMedium($mediaFile);
     }
 
-    public function uploadAvatar($media, User $user)
+    public function uploadAvatar(UploadedFile $media, User $user)
     {
         $originalFileName = pathinfo($media, PATHINFO_FILENAME);
         $safeFileName = $this->slugger->slug($originalFileName);
