@@ -1,4 +1,4 @@
-[![SymfonyInsight](https://insight.symfony.com/projects/0be22bd5-cb64-4f46-a1fb-320fc4d1087b/big.svg)](https://insight.symfony.com/projects/0be22bd5-cb64-4f46-a1fb-320fc4d1087b)
+[![SymfonyInsight](https://insight.symfony.com/projects/c03de2bd-d868-4ca3-859e-498ebca3e276/big.svg)](https://insight.symfony.com/projects/c03de2bd-d868-4ca3-859e-498ebca3e276)
 
 # snowtricks
 SnowTricks is a community site that aims to make the public aware of the different tricks that exist.
