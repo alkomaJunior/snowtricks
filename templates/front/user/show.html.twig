@@ -18,9 +18,16 @@
                             <div class="sc_services sc_services_style_services-3 sc_services_type_icons title_center width_100_per" id="tricksList">
                                 <h2 class="sc_services_title sc_item_title sc_item_title_with_descr"> {{ user.pseudo }}</h2>
                                 <div class="sc_services_descr sc_item_descr" style="margin-bottom: -1%;">
-                                    <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~user.avatar) }}">
-                                        <img alt="{{ user.pseudo }}" src="{{ asset('uploads/medias/'~user.avatar) }}">
-                                    </a>
+                                    {% if user.avatar != "" %}
+                                        <a class="hover_icon hover_icon_view" href="{{ asset('uploads/medias/'~user.avatar)|imagine_filter('avatar') }}">
+                                            <img alt="{{ user.pseudo }}" src="{{ asset('uploads/medias/'~user.avatar)|imagine_filter('avatar') }}">
+                                        </a>
+                                    {% else %}
+                                        <a class="hover_icon hover_icon_view" href="{{ asset('build/mounthood/images/team-2-228x228.jpg')|imagine_filter('avatar') }}">
+                                            <img alt="{{ user.pseudo }}" src="{{ asset('build/mounthood/images/team-2-228x228.jpg')|imagine_filter('avatar') }}">
+                                        </a>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>

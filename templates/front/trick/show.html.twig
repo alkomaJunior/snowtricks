@@ -93,9 +93,15 @@
                             {% for comment in commentsPaginated %}
                                 <section class="post_author author comment-list">
                                     <div class="post_author_avatar">
-                                        <a href="#">
-                                            <img alt="{{ comment.user.pseudo }}" src="{{ asset('uploads/medias/'~comment.user.avatar)|imagine_filter('avatar') }}">
-                                        </a>
+                                        {% if comment.user.avatar != "" %}
+                                            <a href="#">
+                                                <img alt="{{ comment.user.pseudo }}" src="{{ asset('uploads/medias/'~comment.user.avatar)|imagine_filter('avatar') }}">
+                                            </a>
+                                        {% else %}
+                                            <a href="#">
+                                                <img alt="{{ comment.user.pseudo }}" src="{{ asset('build/mounthood/images/team-2-228x228.jpg')|imagine_filter('avatar') }}">
+                                            </a>
+                                        {% endif %}
                                     </div>
                                     <div class="post_author_content">
                                         <h6 class="post_author_title">
@@ -104,7 +110,8 @@
                                             </span>
                                         </h6>
                                         <div class="post_author_info">
-                                            {{ comment.message }}
+                                            <p class="text-justify">{{ comment.message }}</p>
+                                            <p class="text-justify">{{ comment.createdAt|format_datetime('medium', 'short') }}</p>
                                         </div>
                                     </div>
                                 </section>
