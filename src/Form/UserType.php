@@ -41,7 +41,7 @@ class UserType extends AbstractType
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'first_options' => array(
+                'first_options' => [
                     'label' => $this->translator->trans('Password'),
                     'constraints' => [
                         new NotBlank([
@@ -55,7 +55,7 @@ class UserType extends AbstractType
                             'max' => 4096,
                         ]),
                     ]
-                ),
+                ],
                 'second_options' => array(
                     'label' => $this->translator->trans('Confirm password')
                 ),
