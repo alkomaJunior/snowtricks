@@ -1,0 +1,4 @@
+App\Entity\Group:
+  user_user:
+    title: "Group 5"
+    slug: "group5"

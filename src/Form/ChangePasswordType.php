@@ -41,7 +41,7 @@ class ChangePasswordType extends AbstractType
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'first_options' => array(
-                    'label' => $this->translator->trans('Password'),
+                    'label' => $this->translator->trans('New password'),
                     'constraints' => [
                         new NotBlank([
                             'message' => $this->translator->trans('This field is missing'),

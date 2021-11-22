@@ -17,7 +17,7 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "phptest": "php ./vendor/bin/phpunit"
+        "phptest": "php ./vendor/bin/phpunit --coverage-text"
     },
     "dependencies": {
         "@popperjs/core": "^2.10.2",

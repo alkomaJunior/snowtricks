@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,6 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Comment::class);
@@ -47,4 +49,17 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getCommentsPaginatedByTrick(int $offset, int $trickId)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.trick = :id')
+            ->setParameter('id', $trickId)
+            //->orderBy('t.createdAt', 'DESC')
+            ->setMaxResults(10)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult(AbstractQuery::HYDRATE_OBJECT)
+            ;
+    }
 }

@@ -36,16 +36,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/", name="user_index", methods={"GET"})
-     */
-    public function index(UserRepository $userRepository): Response
-    {
-        return $this->render('front/user/index.html.twig', [
-            'users' => $userRepository->findAll(),
-        ]);
-    }
-
-    /**
      * @Route("/sign_up", name="user_sign_up", methods={"GET","POST"})
      * @throws TransportExceptionInterface
      */
@@ -140,7 +130,7 @@ class UserController extends AbstractController
 
         if (new DateTime("now") > date_add(
             new DateTime($user->getCreatedAt()->format("Y-m-d H:i:s")),
-            date_interval_create_from_date_string('5 minute')
+            date_interval_create_from_date_string('1440 minute')
         )) {
             $user->setActivationToken(md5(uniqid()));
             // Activation mail
@@ -216,28 +206,12 @@ class UserController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash("success", $this->translator->trans("Your profile was successfully edited"));
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_show', ['slug' => $user->getSlug()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('front/user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{slug}", name="user_delete", methods={"POST"})
-     */
-    public function delete(Request $request, User $user): Response
-    {
-        $csrfId = sprintf("delete%s", $user->getSlug());
-
-        if ($this->isCsrfTokenValid($csrfId, $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 }

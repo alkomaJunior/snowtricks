@@ -110,8 +110,12 @@ class MediaController extends AbstractController
     /**
      * @Route("/{slug}", name="media_delete", methods={"POST"})
      */
-    public function delete(Request $request, Media $media, string $mediasDir): Response
-    {
+    public function delete(
+        Request $request,
+        Media $media,
+        string $mediasDir,
+        TrickRepository $trickRepository
+    ): Response {
         $this->denyAccessUnlessGranted('ROLE_USER', null, 'User tried to access a page without having ROLE_USER');
 
         $csrfId = sprintf("delete%s", $media->getSlug());

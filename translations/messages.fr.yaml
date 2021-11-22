@@ -65,6 +65,7 @@ Group: Groupes
 Close: Fermer
 Add: Ajouter
 Name: Nom
+Please enter your message: Veuillez entrer votre message
 Browse: Parcourir
 Media front page: Media à la une
 Trick has been successfully created: Trick créé avec succès
@@ -83,6 +84,7 @@ Deletion confirmation: Confirmation de la suppression
 Are you sure: Etes-vous sûr
 Delete: Supprimer
 Edit: Modifier
+This trick was not comment yet: Ce trick n'a pas encore été commenté
 Group successfully deleted: Groupe supprimé avec succès
 Group successfully created: Groupe créé avec succès
 Group successfully edited: Groupe édité avec succès

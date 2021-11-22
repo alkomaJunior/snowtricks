@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home", methods={"GET"})
+     * @Route("/", name="home", methods={"GET", "POST"})
      */
     public function index(TrickRepository $trickRepository, Request $request): Response
     {
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
 
 
     /**
-     * @Route("/my-tricks", name="myTricks", methods={"GET"})
+     * @Route("/my-tricks", name="myTricks", methods={"GET", "POST"})
      */
     public function myTricks(TrickRepository $trickRepository, Request $request): Response
     {
