@@ -75,10 +75,6 @@ Encore
     //.autoProvidejQuery()
 
     .copyFiles({
-        from: './assets/img/',
-        to: 'img/[path][name].[ext]'
-    })
-    .copyFiles({
         from: './assets/mounthood/css',
         to: 'mounthood/css/[path][name].[ext]'
     })
@@ -89,10 +85,6 @@ Encore
     .copyFiles({
         from: './assets/mounthood/js',
         to: 'mounthood/js/[path][name].[ext]'
-    })
-    .copyFiles({
-        from: './assets/mounthood/maps',
-        to: 'mounthood/maps/[path][name].[ext]'
     })
 
 ;
