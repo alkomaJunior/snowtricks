@@ -22,6 +22,13 @@
                                 <a href="{{ path('home') }}"><span> {{ 'Home'|trans }}</span></a>
                             </li>
                             <!-- /Menu: Home -->
+                            <!-- Menu: Group -->
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
+                                <li class="menu-item {{ groupActiveClass ?? "" }}">
+                                    <a href="{{ path('group_index') }}"><span> {{ 'Group'|trans }}</span></a>
+                                </li>
+                            {% endif %}
+                            <!-- /Menu: Group -->
                             <!-- Menu: My Tricks -->
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <li class="menu-item {{ myTricksActiveClass ?? "" }}">
@@ -32,7 +39,7 @@
                             <!-- Menu: Sign in tricks when user is logged in -->
                             <li class="menu-item {{ signInActiveClass ?? "" }} {{ profileActiveClass ?? "" }}">
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <a href="#"><span> {{ 'Profile'|trans }}</span></a>
+                                    <a href="{{ path('user_show', {'slug': app.user.slug}) }}"><span> {{ 'Profile'|trans }}</span></a>
                                 {% else %}
                                     <a href="{{ path('app_login') }}"><span> {{ 'Sign in'|trans }}</span></a>
                                 {% endif %}

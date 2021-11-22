@@ -61,7 +61,7 @@ Instead of the following button you can use this link: Si le boutton ne marche p
 To reset your password, please visit the following link: Pour réinitialiser votre mot de passe, veuillez consulter le lien suivant
 If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.: Si un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
 Your password reset request: Votre demande de réinitialisation du mot de passe
-Group: Groupe
+Group: Groupes
 Close: Fermer
 Add: Ajouter
 Name: Nom
@@ -76,14 +76,31 @@ Description: Description
 Created at: Créé le
 Updated at: Mise à jour le
 Created by: Créé par
+New group: Ajouter un groupe
+Please enter the group name: Veuillez entrez le nom du groupe
 LEAVE A COMMENT: LAISSEZ UN COMMENTAIRE
 Deletion confirmation: Confirmation de la suppression
 Are you sure: Etes-vous sûr
 Delete: Supprimer
 Edit: Modifier
+Group successfully deleted: Groupe supprimé avec succès
+Group successfully created: Groupe créé avec succès
+Group successfully edited: Groupe édité avec succès
 Media url: Lien pour un média
+Groups name: Noms des groupes
+Edit my profile: Editer mon profile
+Please fill this form to change your password: Veuillez remplir ce formulaire pour changer votre mot de passe
+Your profile was successfully edited: Votre profil a été édité avec succès.
+Please fill this form to edit your profile: Veuillez remplir ce formulaire pour éditer votre profile
 NO TRICK: AUCUN TRICK
+Edit profile: Modifier mon profil
+Change password: Changer de mot de passe
+Password successfully updated: Mot de passe mis à jour avec succès
+Your current password is incorrect: Votre mot de passe actuel est incorrecte
+Old password: Ancien mot de passe actuel
 YOU HAVEN'T CREATED ANY TRICKS YET: VOUS N'AVEZ ENCORE CREE AUCUN TRICK
+Groups list: Liste des groupes de Tricks
+Group management table: Tableau de gestion des groupes
 Please choose some/a video(s)/image(s): Veuillez choisir une/des video(s)/image(s)
 Please choose a group: Veuillez choisir un groupe
 Please enter the Trick name: Veuillez entrer le nom du Trick
